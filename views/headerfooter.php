@@ -1,6 +1,7 @@
 /**
  * function permettant de printer la template de header
  */
+ <?php
 function template_header($title) {
   echo <<<EOT
   <!DOCTYPE html>
@@ -21,8 +22,6 @@ function template_header($title) {
       </nav>
   EOT;
 }
-
-
 /**
  * function permettant de printer la template de footer
  */
