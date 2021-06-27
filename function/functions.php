@@ -1,0 +1,1 @@
+/*ce fichier contiendra toutes les fonctions*/
