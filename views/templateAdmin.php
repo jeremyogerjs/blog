@@ -33,6 +33,16 @@
             <li><a class="dropdown-item" href="#">Culture</a></li>
           </ul>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            docs
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" target="_blank">Bootstrap</a></li>
+            <li><a class="dropdown-item" href="http://localhost/phpmyadmin/index.php" target="_blank">Phpmyadmin</a></li>
+            <li><a class="dropdown-item" href="https://fontawesome.com/v5.15/icons?d=gallery&p=2" target="_blank">font awesome</a></li>
+          </ul>
+        </li>
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
