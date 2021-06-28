@@ -1,11 +1,10 @@
 <?php 
- session_start ();
-
-ob_start(); 
-// Demarrage pour chaque fichier views
-require('./functions/getAllpost.php');
-
-
+session_start ();
+ob_start(); // Demarrage pour chaque fichier views
+require('./helper/db-connect.php'); // Déclarer la connection a la bse au debut du fichier view
+require('./functions/posts/getAllpost.php');
+require('./functions/tags/getTag.php');
+require('./functions/comments/getAllComments.php');
 
 ?> 
 <div>
