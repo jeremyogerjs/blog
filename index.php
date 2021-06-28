@@ -14,6 +14,10 @@ if(isset($_GET['action']))
     {
         require('./functions/admin.php');
     }
+    else if($_GET['action'] === 'categorie')
+    {
+        require('./views/archive.php');
+    }
 }
 else
 {

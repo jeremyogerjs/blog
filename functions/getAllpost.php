@@ -1,8 +1,8 @@
 <?php
 require('./helper/db-connect.php');
 
-$sql = "SELECT p.id,p.title,p.content,u.username,p.createdDate,c.catName 
-FROM posts as p 
+$sql = "SELECT c.id,p.id,p.title,p.content,u.username,p.createdDate,c.catName
+FROM posts as p   
 INNER JOIN categories as c ON p.idCategory = c.id 
 INNER JOIN users as u ON u.id = p.idUser";
 
@@ -22,6 +22,19 @@ function getTag($id)
     $result -> execute();
 
     $results = $result -> fetchAll();
+
+    return $results;
+}
+
+// $validate = 1 si le commentaire est validé sinon 0
+function getComments($id,$validate)
+{
+    $sql = "SELECT c.id,c.comment,c.validate,c.pseudo,c.idPosts FROM commentaries AS c WHERE c.idPosts = $id AND c.validate = $validate";
+
+    $result = pdo_connect_mysql() ->prepare($sql);
+
+    $result -> execute();
+    $results = $result ->fetchAll();
 
     return $results;
 }
