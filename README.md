@@ -51,6 +51,6 @@ je veux pouvoir structuré le blog à l'aide de catégorie et de tag associé au
 afin d'aider l'utilisateur à filtrer ses recherches.
 
 **schéma base de données :** 
-![alt text](https://trello-attachments.s3.amazonaws.com/60d91951bbfdff08d80e3e0b/60d9196508e4073dc4132568/9967f0e794180e2739b86e3d61d19163/Capture_d%E2%80%99%C3%A9cran_(44).png)
+![alt text](https://trello-attachments.s3.amazonaws.com/60d91951bbfdff08d80e3e0b/60d9196508e4073dc4132568/fa3a4b7077340953aa99d47c08bddcf9/Capture_d%E2%80%99%C3%A9cran_(51).png)
 **arborescence home:**
 ![alt text](https://trello-attachments.s3.amazonaws.com/60d91951bbfdff08d80e3e0b/60d91d824543738ef578e542/d9d3ba01fdab9487d7a7eac27a2936f4/Capture_d%E2%80%99%C3%A9cran_(48).png)
