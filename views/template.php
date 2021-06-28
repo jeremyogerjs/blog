@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <title>Blog</title>
 </head>
@@ -35,6 +36,16 @@
             <li><a class="dropdown-item" href="#">Sports</a></li>
             <li><a class="dropdown-item" href="#">Divers</a></li>
             <li><a class="dropdown-item" href="#">Culture</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            docs
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" target="_blank">Bootstrap</a></li>
+            <li><a class="dropdown-item" href="http://localhost/phpmyadmin/index.php" target="_blank">Phpmyadmin</a></li>
+            <li><a class="dropdown-item" href="https://fontawesome.com/v5.15/icons?d=gallery&p=2" target="_blank">font awesome</a></li>
           </ul>
         </li>
       </ul>
