@@ -1,5 +1,7 @@
 <?php ob_start(); 
 // Demarrage pour chaque fichier views
+require('./functions/getAllpost.php');
+var_dump($results);
 ?> 
 
 <div>
