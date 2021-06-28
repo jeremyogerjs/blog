@@ -10,6 +10,7 @@
   <title>Blog</title>
 </head>
 <body>
+ 
   <div class="container">
     <?= $content ?>
   </div>
