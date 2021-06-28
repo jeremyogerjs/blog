@@ -1,7 +1,9 @@
-<?php require("./helper/db-connect.php");
+<?php 
+session_start();
+require("./helper/db-connect.php");
 require("./functions/tags/getAllTag.php");
 ob_start();
-session_start();
+
 ?>
 <h3>Listes des tags</h3>
 <div class="col-4">

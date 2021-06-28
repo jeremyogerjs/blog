@@ -1,7 +1,7 @@
 <?php 
 
 include './helper/db-connect.php';
-include './views/signInAdmin.php';
+
 
 $dbh = pdo_connect_mysql();
 
@@ -19,7 +19,7 @@ try {
 		$res = $dbh->prepare($query);
 		$res->execute($values);
 
-		$row = $res->fetch(PDO::FETCH_ASSOC);
+		$row = $res->fetch();
 
 		$isPasswordCorrect = password_verify($password, $row['password']);
 
@@ -32,7 +32,8 @@ try {
 			$_SESSION['username'] = $_POST['username'];
 			$_SESSION['password'] = $_POST['password'];
 
-			header('location: index.php');	
+			header("location:index.php?action=memberarea");
+			echo("fhrif");
 		}
 		else
 		{
