@@ -2,11 +2,7 @@
 
 if(isset($_GET['action']))
 {
-    if($_GET['action'] === 'single')
-    {
-        // principe
-    }
-    elseif($_GET['action'] === 'admin')
+    if($_GET['action'] === 'admin')
     {
         require('./views/signInAdmin.php');
     }
@@ -29,6 +25,22 @@ if(isset($_GET['action']))
     else if ($_GET['action'] === 'getAllpost')
     {
         require('./functions/posts/getAllpost.php');
+    }
+    elseif($_GET['action'] === "espaceAdmin")
+    {
+        require('./views/admin/adminHome.php');
+    }
+    elseif($_GET['action'] === 'adminTag')
+    {
+        require('./views/admin/adminTag.php');
+    }
+    elseif($_GET['action'] === 'adminCategories')
+    {
+        require('./views/admin/adminCategories.php');
+    }
+    elseif($_GET['action'] === 'adminComments')
+    {
+        require('./views/admin/adminCategories.php');
     }
 }
 else

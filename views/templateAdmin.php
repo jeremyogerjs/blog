@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,9 +22,6 @@
         <li class="nav-item">
           <a class="nav-link" href="index.php?action=admin">Login</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?action=espaceAdmin">Espace admin</a>
-        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Categories
@@ -45,9 +40,27 @@
     </div>
   </div>
 </nav>
-  <div class="container">
-    <?= $content ?>
-  </div>
+<div class="container d-flex">
+    <div class="col-3">
+        <ul class="nav nav-tabs flex-column">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.php?action=espaceAdmin">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="index.php?action=adminComments">Commentaires a valider</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="index.php?action=adminTag">Tags</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="index.php?action=adminCategories">Catégories</a>
+        </li>
+        </ul>
+    </div>
+    <div class="col-8">
+        <?= $content ?>
+    </div>
+</div>
   <footer>
 
   </footer>
