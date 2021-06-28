@@ -3,7 +3,7 @@ squad : Clément,Marie-claude,Julien,Jérémy
 trello squad : https://trello.com/b/PDCK1kZs
 
 
-**userStories: 
+**userStories:** 
 * 1.USER CASES - Utilisateur
 En tant qu'utilisateur 
 je veux pouvoir consulter mes postes
@@ -50,4 +50,4 @@ En tant qu'administrateur
 je veux pouvoir structuré le blog à l'aide de catégorie et de tag associé aux articles
 afin d'aider l'utilisateur à filtrer ses recherches.
 
-**schéma base de données : 
+**schéma base de données :** 
