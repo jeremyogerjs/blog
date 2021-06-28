@@ -1,18 +1,25 @@
 <?php 
+
  session_start ();
 
 ob_start(); 
+ include('./helper/db-connect.php');
+ require('./functions/posts/getAllpost.php');
 ?>
 
-
-<div>
-    <h1><?= $result['title'] ?></h1>
-    <p><?= $result['content']?></p>
-    <time><?= $result['createDate'] ?></time>
-</div>
+<?php foreach($results as $result) : ?>
+    <div class="container">
+        <div class="col-sm">
+            <h1><?= $result['title'] ?></h1>
+            <p><?= $result['content']?></p>
+            <time><?= $result['createdDate'] ?></time>
+        </div>
+        
+    </div>
+<?php endforeach;?>
 
     <hr>
-    <form action="createComm.php?id=<?= $post->id ?>" method="post">
+    <form action="createComm.php?id=<?= $result['id'] ?>" method="post">
        
        <div class="mb-3">
             <label for="pseudo">Pseudo</label>
