@@ -18,6 +18,18 @@ if(isset($_GET['action']))
     {
         require('./views/archive.php');
     }
+    else if ($_GET['action'] === 'singlepost')
+    {
+        require ('./views/singlepost.php');
+    }
+    else if ($_GET['action'] === 'createCom')
+    {
+        require ('./functions/createComm.php');
+    }
+    else if ($_GET['action'] === 'getAllpost')
+    {
+        require('./functions/posts/getAllpost.php');
+    }
 }
 else
 {
