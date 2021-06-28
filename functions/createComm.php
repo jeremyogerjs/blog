@@ -1,8 +1,12 @@
 <?php
 require('./helper/db-connect.php');
 
-$bdd =  pdo_connect_mysql() ;
-$req = $bdd->prepare(INSERT INTO commentaries (comment ,pseudo, idPosts) VALUES(?,?,?));
-$req->execute(array($pseudo,$comment,$idPost));
+$sql='INSERT INTO commentaries (comment ,pseudo, idPosts) VALUES(?,?,?)'
+$bdd =  pdo_connect_mysql($sql) ;
+$req = $bdd->prepare();
+$req->execute(array(
+    'pseudo'=>$pseudo,
+    'comment'=>$comment,
+    'idPost'=>$idPost));
 $req->closeCursor();
 
