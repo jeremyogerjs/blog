@@ -18,6 +18,22 @@ if(isset($_GET['action']))
     {
         require('./views/archive.php');
     }
+    elseif($_GET['action'] === "espaceAdmin")
+    {
+        require('./views/admin/adminHome.php');
+    }
+    elseif($_GET['action'] === 'adminTag')
+    {
+        require('./views/admin/adminTag.php');
+    }
+    elseif($_GET['action'] === 'adminCategories')
+    {
+        require('./views/admin/adminCategories.php');
+    }
+    elseif($_GET['action'] === 'adminComments')
+    {
+        require('./views/admin/adminCategories.php');
+    }
 }
 else
 {
