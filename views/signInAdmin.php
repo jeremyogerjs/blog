@@ -24,7 +24,7 @@
     <div class="mb-6">
 		<div class="btnConn col-6">
 		<input class="btn btn-outline-primary" type="submit" name="verify"  value="Se connecter">
-		<a type="button" href="./views/index.php" class="btn btn-primary" rôle="button">Retour</a>
+		<a type="button" href="index.php" class="btn btn-primary" rôle="button">Retour</a>
 		<a type="button" href="http://localhost/phpmyadmin/index.php?route=/sql&server=1&db=biblio&table=admin&pos=0" class="btn btn-warning" rôle="button">Accéder à la table admin</a>
 		</div>
 	</div>
