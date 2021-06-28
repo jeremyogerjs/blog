@@ -6,6 +6,14 @@ if(isset($_GET['action']))
     {
         // principe
     }
+    elseif($_GET['action'] === 'admin')
+    {
+        require('./views/signInAdmin.php');
+    }
+    elseif($_GET['action'] === 'auth')
+    {
+        require('./functions/admin.php');
+    }
 }
 else
 {
