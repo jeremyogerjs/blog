@@ -52,5 +52,5 @@ afin d'aider l'utilisateur à filtrer ses recherches.
 
 **schéma base de données :** 
 ![alt text](https://trello-attachments.s3.amazonaws.com/60d91951bbfdff08d80e3e0b/60d9196508e4073dc4132568/fa3a4b7077340953aa99d47c08bddcf9/Capture_d%E2%80%99%C3%A9cran_(51).png)
-**arborescence home:**
-![alt text](https://trello-attachments.s3.amazonaws.com/60d91951bbfdff08d80e3e0b/60d91d824543738ef578e542/d9d3ba01fdab9487d7a7eac27a2936f4/Capture_d%E2%80%99%C3%A9cran_(48).png)
+**arborescence du blog:**
+![alt text](https://trello-attachments.s3.amazonaws.com/60d91951bbfdff08d80e3e0b/60da8c2f6cf94b843f392dfc/54f47614bd62548780ae35f290eb46ab/Capture_d%E2%80%99%C3%A9cran_(86).png)

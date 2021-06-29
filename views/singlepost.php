@@ -17,6 +17,34 @@ require('functions/posts/getSinglePost.php');
         </div>
          
     </div>
+
+
+<!-- affichage du postes et controle admin -->
+<?php if(!empty($_SESSION)) : ?>
+  <a href="index.php?action=updateArticle"><i class="fas fa-pencil-alt"></i></a> 
+  <div class="container">
+        <div class='row'>
+             <div class="row row-cols-1">
+                <h1><?= $result['title'] ?></h1>
+                <p><?= $result['content']?></p>
+                <time><?= $result['createdDate'] ?></time>
+            </div>
+        </div>
+         
+    </div>
+<?php else : ?>
+ 
+   <div class="container">
+        <div class='row'>
+             <div class="row row-cols-1">
+                <h1><?= $result['title'] ?></h1>
+                <p><?= $result['content']?></p>
+                <time><?= $result['createdDate'] ?></time>
+            </div>
+        </div>
+         
+    </div>
+<?php endif; ?>
 <!-- gestion des erreur  -->
 <?php
     if(!empty($_post)){
@@ -43,8 +71,7 @@ require('functions/posts/getSinglePost.php');
     <?php
     $result = getComments($result['id'],1);
      foreach ($result as $result): ?>
-   
-    <span ><?= $result['comment']?></span>
+    <span><?= $result['comment']?></span>
     <?php endforeach; ?>
 <?php $content = ob_get_clean(); //ici je stocke tout le contenu entre le ob_start et le ob_get_clean dans la variable $content?>
 

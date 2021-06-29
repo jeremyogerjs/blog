@@ -63,6 +63,10 @@ if(isset($_GET['action']))
         {
             require('./views/forms/createArticles.php');
         }
+    } 
+    elseif($_GET['action'] === 'updateArticle')
+    {
+       require('./forms/updateArticle.php');
     }
 }
 else
