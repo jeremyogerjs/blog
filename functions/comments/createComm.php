@@ -1,11 +1,24 @@
 <?php
-require('./helper/db-connect.php');
+include'./helper/db-connect.php';
 
-$sql='INSERT INTO commentaries (comment ,pseudo, idPosts) VALUES(?,?,?)';
-$req = pdo_connect_mysql() -> prepare($sql);
+
+$id=$_GET['id'];
+$bdd = pdo_connect_mysql();
+$sql='INSERT INTO commentaries (comment ,pseudo, idPosts,validate) VALUES(?,?,?,?)';
+$req = $bdd-> prepare($sql);
 $req->execute(array(
-    'pseudo'=>$pseudo,
-    'comment'=>$comment,
-    'idPost'=>$idPost));
+    $_POST['comment'],
+    $_POST['pseudo'],
+    $id,
+    0    ));
 $req->closeCursor();
+if ($req)
+{
+    $sucess='votre commentaire est en cours de validation ';
+    require ('./views/singlepost.php');
+} 
+else {
+    $error = "votre commentaire n 'as pas etait pris en compte";
+    require ('./views/singlepost.php');
+}
 

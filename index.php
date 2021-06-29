@@ -37,9 +37,18 @@ if(isset($_GET['action']))
     {
         require ('./views/singlepost.php');
     }
-    else if ($_GET['action'] === 'createCom')
+    else if ($_GET['action'] === 'createComm')
     {
-        require ('./functions/createComm.php');
+        if(!empty($_POST))
+        {
+            require ('./functions/comments/createComm.php');
+        }
+        else
+        {
+            require ('./views/singlepost.php');
+
+        }
+
     }
     else if ($_GET['action'] === 'getAllpost')
     {
@@ -51,7 +60,7 @@ if(isset($_GET['action']))
     }
     elseif($_GET['action'] === 'adminComments')
     {
-        require('./views/admin/adminCategories.php'); // a changer
+        require('./views/admin/adminComments.php'); // a changer
     }
     elseif($_GET['action'] === 'createPost')
     {
