@@ -1,6 +1,8 @@
-<?php require("./helper/db-connect.php");
-ob_start();
+<?php 
 session_start();
+require("./helper/db-connect.php");
+ob_start();
+
 ?>
 
 <p>Liste des catégories !!!!</p>

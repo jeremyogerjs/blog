@@ -1,10 +1,12 @@
-<?php require("./helper/db-connect.php");
-ob_start();
+<?php
 session_start();
+require("./helper/db-connect.php");
+ob_start();
+
 ?>
 
 
-<h1>Bienvenue sur l'espace membre !!!!</h1>
+<h1>Bienvenue <?php echo $_SESSION['username'] ?>sur l'espace membre !!!!</h1>
 
 <?php $content = ob_get_clean(); ?>
 
