@@ -7,9 +7,7 @@ require('functions/comments/getAllComments.php');
 $id=$_GET['id'];
 $bdd = pdo_connect_mysql();
 $req = $bdd->prepare("SELECT title,content,createdDate,id FROM posts where id =?");
-$req->execute(array($id)
-
-);
+$req->execute(array($id));
 $result = $req->fetch();
 
 
@@ -43,29 +41,38 @@ $result = $req->fetch();
 <?php endif; ?>
 
 <!-- gestion des erreur  -->
+
 <?php
-    if(!empty($_post)){
+    if(!empty($_POST))
+    {
         echo "<div class='alert alert-danger'>vous devez remplir tous les champs</div>";
     }
+    elseif(!empty($_POST['pseudo'])){
+        echo "<div class='alert alert-danger'>vous devez remplir le champs pseudo </div>";
+    }
+    elseif(!empty($_POST['comment'])){
+        echo "<div class='alert alert-danger'>vous devez remplir le champs commentaire </div>";
+    }
+    
 ?>
 
     <hr>
-    <form action="createComm.php&id=<?= $result['id'] ?>" method="post">
-       
+    <form action="index.php?action=createComm&id=<?=$result['id']?>" method="post">
        <div class="mb-3">
             <label for="pseudo">Pseudo</label>
-            <input class="form-control" type="text" name="pseudo" id="pseudo"><br><br>
+            <input class="form-control" type="text" name="pseudo" id="pseudo" required><br><br>
         </div>
         <div class="mb-3">
             <label for="comment">Commentaires</label>
-            <textarea class="form-control" name="comment" id="comment" cols="20" rows="8"></textarea><br><br>
+            <textarea class="form-control" name="comment" id="comment" required cols="20" rows="8"></textarea><br><br>
         </div>
         <input type="submit" value="envoyé">
     </form>
-    <hr>
 
+    <hr>
+    <h3>Commentaires:</h3>
     <!-- affichage des commentaires  -->
-    <?php
+    <?php ;
     $result = getComments($result['id'],1);
      foreach ($result as $result): ?>
     <span><?= $result['comment']?></span>

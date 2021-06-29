@@ -37,9 +37,14 @@ if(isset($_GET['action']))
     {
         require ('./views/singlepost.php');
     }
-    else if ($_GET['action'] === 'createCom')
+    else if ($_GET['action'] === 'createComm')
     {
-        require ('./functions/createComm.php');
+       if(!empty($_POST)){
+           require ('./functions/comments/createComm.php');
+        } 
+        else {
+            require ('./views/singlepost.php');
+        }
     }
     else if ($_GET['action'] === 'getAllpost')
     {
