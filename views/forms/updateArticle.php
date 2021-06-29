@@ -30,7 +30,7 @@ var_dump($result);
 </select>
     <div id="categorieHelp" class="form-text">Catégorie actuel : <?= $result['catName'] ?></div>
   <button type="submit" class="btn btn-primary my-3">Edit</button>
-  <button type="submit" class="btn btn-warning my-3"><a href="" class="text-decoration-none link-dark">Retour a l'article</a></button>
+  <button type="submit" class="btn btn-warning my-3"><a href="index.php?action=singlepost&id=<?=$_GET['id'] ?>" class="text-decoration-none link-dark">Retour a l'article</a></button>
 </form>
 
 <?php $content = ob_get_clean(); ?>
