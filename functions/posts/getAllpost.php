@@ -8,7 +8,7 @@ if ($currentPage <= 0) {
 
 $reponse = (int) pdo_connect_mysql()->query("SELECT COUNT(id) FROM posts")->fetch(PDO::FETCH_NUM)[0];
 
-$perPage = 10;
+$perPage = 5;
 $pages = ceil($reponse / $perPage);
 
 if ($currentPage > $pages) {
