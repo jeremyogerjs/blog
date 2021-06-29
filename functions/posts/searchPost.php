@@ -1,10 +1,28 @@
 <?php
-require('./helper/db-connect.php');
+$currentPage = (int) ($_GET['page'] ?? 1 ) ;
+$query = $_POST['search'];
+if ($currentPage <= 0) {
+    throw new Exception('Numéro de page invalide!');
+}
+$reponse = (int) pdo_connect_mysql()->query("SELECT COUNT(id) FROM posts as p WHERE p.title LIKE '%$query%'")->fetch(PDO::FETCH_NUM)[0];
 
-$sql = "SELECT p.id,p.title,p.content,p.author,p.createdDate,p.idCategory FROM posts as p INNER JOIN categories as c ON p.idCategory = c.id WHERE p.title LIKE '%$query%' OR p.author LIKE '%$query%'";
+$perPage = 10;
+$pages = ceil($reponse / $perPage);
 
-$result = pdo_connect_mysql() -> prepare($sql);
+if ($currentPage > $pages) {
+    throw new Exception("Cette page n'existe pas!");
+}
+$offset = $perPage * ($currentPage - 1);
 
-$result -> execute();
+$result = pdo_connect_mysql() -> prepare("SELECT c.id,p.id,p.title,p.content,u.username,p.createdDate,c.catName 
+FROM posts as p 
+INNER JOIN categories as c ON p.idCategory = c.id 
+INNER JOIN users as u ON u.id = p.idUser 
+WHERE p.title LIKE ? 
+LIMIT $perPage 
+OFFSET $offset");
 
-$results = $result -> fetchAll();
+$result ->execute(["%$query%"]);
+
+$results = $result ->fetchAll();
+

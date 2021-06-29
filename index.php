@@ -48,11 +48,18 @@ if(isset($_GET['action']))
             require ('./views/singlepost.php');
 
         }
-
     }
     else if ($_GET['action'] === 'getAllpost')
     {
         require('./functions/posts/getAllpost.php');
+    }
+    elseif($_GET['action'] === 'searchPost')
+    {
+        require ('./views/search.php');
+    }
+    elseif($_GET['action'] === 'archivePost')
+    {
+        require ('./views/archive.php');
     }
     elseif($_GET['action'] === "espaceAdmin")
     {
@@ -73,7 +80,7 @@ if(isset($_GET['action']))
             require('./views/forms/createArticles.php');
         }
     } 
-    elseif($_GET['action'] === 'updateArticle')
+    elseif($_GET['action'] === 'updatePost')
     {
        require('./forms/updateArticle.php');
     }
