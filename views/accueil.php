@@ -20,7 +20,7 @@ require('./functions/comments/getAllComments.php');
     ?>
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title"><?= $result['title'] ?> <a href="index.php?action=singlepost" class="text-dark text-decoration-none" ><?= $result['title'] ; ?></a></h5>
+                <h5 class="card-title"><a href="index.php?action=singlepost&id=<?=$result['id']?>" class="text-dark text-decoration-none" ><?= $result['title'] ; ?></a></h5>
                 <h6 class="card-subtitle mb-2 text-muted"><?= $result['username'] ?></h6>
                 <p class="card-text"><?= substr($result['content'],0,65) ?></p>
                 <?php foreach(getTag($result['id']) as $tag ) : ?>
