@@ -49,43 +49,21 @@ if(isset($_GET['action']))
     {
         require('./views/admin/adminHome.php');
     }
-    elseif($_GET['action'] === 'adminTag')
-    {
-        require('./views/admin/adminTag.php');
-    }
-    elseif($_GET['action'] === 'adminCategories')
-    {
-        require('./views/admin/adminCategories.php');
-    }
     elseif($_GET['action'] === 'adminComments')
     {
-        require('./views/admin/adminCategories.php');
+        require('./views/admin/adminCategories.php'); // a changer
     }
-    elseif($_GET['action'] === 'delTag')
+    elseif($_GET['action'] === 'createPost')
     {
-        require('./functions/tags/deleteTag.php'); //error de foreign key si le tag est utiliser sa marche pas
+        if(!empty($_POST))
+        {
+            require('./functions/posts/createPost.php');
+        }
+        else
+        {
+            require('./views/forms/createArticles.php');
+        }
     }
-    elseif($_GET['action'] === 'editTag')
-    {
-        // appeler le fichier views editTag qui renvoie au formulaire
-    }
-    elseif($_GET['action'] === 'delCat')
-    {
-        require('./functions/categories/delCategories.php'); //error de foreign key si la catégorie est utiliser sa marche pas
-    }
-    elseif($_GET['action'] === 'editCat')
-    {
-        // appeler le fichier views editCategories qui renvoie au formulaire
-    }  
-    elseif($_GET['action'] === 'createCat')
-    {
-        // appeler le fichier views createCategories qui renvoie au formulaire
-    } 
-    elseif($_GET['action'] === 'createTag')
-    {
-        // appeler le fichier views createTag qui renvoie au formulaire
-    } 
-    
 }
 else
 {

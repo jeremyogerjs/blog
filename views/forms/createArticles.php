@@ -5,15 +5,14 @@ ob_start();
 require("./functions/categories/getAllCategories.php");
 ?> 
 
-<form method="POST" action="index.php?action=createPost&id= <?= $_GET['id'] ?>">
+<form method="POST" action="index.php?action=createPost">
   <div class="mb-3">
     <label for="title" class="form-label">Titre de l'article</label>
-    <input type="text" class="form-control" id="title">
-    <div id="emailHelp" class="form-text"></div>
+    <input type="text" name="title" class="form-control" id="title" placeholder="Your title">
   </div>
-  <div class="mb-3">
+  <div class="mb-3 d-flex flex-column">
     <label for="content" class="form-label">Content</label>
-    <textarea name="content" id="content" cols="30" rows="10"></textarea>
+    <textarea name="content" id="content" cols="100" rows="5" placeholder="content..."></textarea>
   </div>
   <div class="mb-3">
     <label for="createdDate" class="form-label">Date de création</label>
@@ -25,7 +24,7 @@ require("./functions/categories/getAllCategories.php");
         <option value="<?= $categorie['id'] ?>"><?= $categorie['catName'] ?></option>
     <?php endforeach; ?>
 </select>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary my-3">Create</button>
 </form>
 
 <?php $content = ob_get_clean(); ?>

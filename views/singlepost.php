@@ -4,19 +4,8 @@ ob_start();
 include('./helper/db-connect.php');
 require('./functions/posts/getAllpost.php');
 require('functions/comments/getAllComments.php');
-$id=$_GET['id'];
-$bdd = pdo_connect_mysql();
-$req = $bdd->prepare("SELECT title,content,createdDate,id FROM posts where id =?");
-$req->execute(array($id)
-
-);
-$result = $req->fetch();
-
-
+require('functions/posts/getSinglePost.php');
 ?>
-
-
-
 <!-- affichage du postes  -->
   
 
@@ -28,9 +17,6 @@ $result = $req->fetch();
         </div>
          
     </div>
-   
-
-
 <!-- gestion des erreur  -->
 <?php
     if(!empty($_post)){
