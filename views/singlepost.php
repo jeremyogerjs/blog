@@ -15,7 +15,7 @@ $result = $req->fetch();
 
 ?>
 
-<!-- affichage du postes  -->
+<!-- affichage du postes et controle admin -->
 <?php if(!empty($_SESSION)) : ?>
   <a href="index.php?action=updateArticle"><i class="fas fa-pencil-alt"></i></a> 
   <div class="container">
