@@ -67,6 +67,7 @@ require('functions/posts/getSinglePost.php');
     </form>
 
     <hr>
+    
     <h3>Commentaires:</h3>
     <!-- affichage des commentaires  -->
     <?php ;
