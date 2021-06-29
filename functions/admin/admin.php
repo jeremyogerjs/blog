@@ -39,6 +39,8 @@ try {
 		{
 			echo '<script type="text/javascript">alert("Your login or your password is incorrect!");
 			</script>';
+
+			header("location:index.php?action=auth");
 		}
 
 	}
