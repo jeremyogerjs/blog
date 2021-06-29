@@ -33,7 +33,12 @@ require('functions/posts/getSinglePost.php');
                 <time><?= $result['createdDate'] ?></time>
             </div>
         </div>
-    <?php endif; ?>
+
+        <a href="index.php?action=likes?t=1&id=<?=$result['id']?>"><i class="fas fa-thumbs-up"></i></a> 
+   <br />
+    </div>
+<?php endif; ?>
+
 <!-- gestion des erreur  -->
 
     <?php

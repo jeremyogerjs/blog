@@ -84,6 +84,10 @@ if(isset($_GET['action']))
     {
        require('./forms/updateArticle.php');
     }
+    elseif($_GET['action'] === 'likes')
+    {
+       require('./functions/mentions/addLikes.php');
+    }
 }
 else
 {
