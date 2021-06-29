@@ -1,3 +1,4 @@
+<?php require('./functions/categories/getAllCategories.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,9 +35,9 @@
             Categories
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Sports</a></li>
-            <li><a class="dropdown-item" href="#">Divers</a></li>
-            <li><a class="dropdown-item" href="#">Culture</a></li>
+            <?php foreach($results as $categorie) : ?>
+              <li><a class="dropdown-item" href="index.php?action=archivePost&id=<?= $categorie['id'] ?>"><?= $categorie['catName'] ?></a></li>
+            <?php endforeach; ?>
           </ul>
         </li>
         <li class="nav-item dropdown">
