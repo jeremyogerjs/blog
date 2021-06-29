@@ -1,15 +1,15 @@
 <?php
-// On démarre la session
 session_start ();
+var_dump($_SESSION);
+// On démarre la session
 
 // On détruit les variables de notre session
-session_unset ();
-
 // On détruit notre session
-session_destroy ();
+session_unset ();
+if(isset($_SESSION)) {
+    session_destroy ();
+}
 
-echo "<script type='text/javascript'>alert('AU REVOIR !!!!!');
-          </script>";
 // On redirige le visiteur vers la page d'accueil
 header ('location: ./index.php');
 ?>

@@ -5,12 +5,13 @@ require('./helper/db-connect.php'); // Déclarer la connection a la bse au debut
 require('./functions/posts/getAllpost.php');
 require('./functions/tags/getTag.php');
 require('./functions/comments/getAllComments.php');
-
+var_dump($_SESSION);
 ?> 
 <div>
-<?php if(isset($_SESSION)) : ?>
+<?php if(!empty($_SESSION)) : ?>
     <p>Bienvenue <?php echo $_SESSION['username'] ?> Je suis l'accueil !!!!</p>
-    <?PHP else : ?>
+    <?php else : ?>
+    <p>Bienvenue invité Je suis l'accueil !!!!</p>
 <?php endif; ?>
     <?php foreach($results as $result) : ?>
     <?php 
