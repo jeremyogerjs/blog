@@ -29,6 +29,10 @@ if(isset($_GET['action']))
             require('./views/signInAdmin.php');
         }
     }
+    else if($_GET['action'] === 'deletepost')
+    {
+        require('./functions/posts/deletePost.php');
+    }
     else if($_GET['action'] === 'categorie')
     {
         require('./views/archive.php');

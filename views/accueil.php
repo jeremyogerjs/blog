@@ -19,7 +19,7 @@ require('./functions/comments/getAllComments.php');
                 <a href="index.php?action=singlepost&id=<?=$result['id']?>" class="text-dark text-decoration-none" >
                     <h5 class="card-title"><?= $result['title'] ; ?>
                         <?php if(!empty($_SESSION)) : ?>
-                            <i class="fa fa-window-close my-3" aria-hidden="true"></i>
+                            <a href="index.php?action=deletepost&id=<?=$result['id']?>"<i class="fa fa-window-close my-3" aria-hidden="true"></i></a>
                         <?php endif; ?>
                     </h5>
                     <h6 class="card-subtitle mb-2 text-muted"><?= $result['username'] ?></h6>
