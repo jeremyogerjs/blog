@@ -15,21 +15,32 @@ $result = $req->fetch();
 
 ?>
 
-
-
 <!-- affichage du postes  -->
-  
-
-   <div class="card-body">
-        <div class='col-10'>
-            <h1><?= $result['title'] ?></h1>
-            <div class="card-text"><?= $result['content']?></div>
-            <time><?= $result['createdDate'] ?></time>
+<?php if(!empty($_SESSION)) : ?>
+  <a href="index.php?action=updateArticle"><i class="fas fa-pencil-alt"></i></a> 
+  <div class="container">
+        <div class='row'>
+             <div class="row row-cols-1">
+                <h1><?= $result['title'] ?></h1>
+                <p><?= $result['content']?></p>
+                <time><?= $result['createdDate'] ?></time>
+            </div>
         </div>
          
     </div>
-   
-
+<?php else : ?>
+ 
+   <div class="container">
+        <div class='row'>
+             <div class="row row-cols-1">
+                <h1><?= $result['title'] ?></h1>
+                <p><?= $result['content']?></p>
+                <time><?= $result['createdDate'] ?></time>
+            </div>
+        </div>
+         
+    </div>
+<?php endif; ?>
 
 <!-- gestion des erreur  -->
 <?php
@@ -57,8 +68,7 @@ $result = $req->fetch();
     <?php
     $result = getComments($result['id'],1);
      foreach ($result as $result): ?>
-   
-    <span ><?= $result['comment']?></span>
+    <span><?= $result['comment']?></span>
     <?php endforeach; ?>
 <?php $content = ob_get_clean(); //ici je stocke tout le contenu entre le ob_start et le ob_get_clean dans la variable $content?>
 
