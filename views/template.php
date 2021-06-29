@@ -59,6 +59,7 @@
   <div class="container">
     <?= $content ?>
   </div>
+  
   <footer>
 
   </footer>
