@@ -4,16 +4,20 @@ ob_start();
 include('./helper/db-connect.php');
 require('./functions/posts/getAllpost.php');
 require('functions/comments/getAllComments.php');
-$id=$_GET['id'];
-$bdd = pdo_connect_mysql();
-$req = $bdd->prepare("SELECT title,content,createdDate,id FROM posts where id =?");
-$req->execute(array($id)
-
-);
-$result = $req->fetch();
-
-
+require('functions/posts/getSinglePost.php');
 ?>
+<!-- affichage du postes  -->
+  
+
+   <div class="card-body">
+        <div class='col-10'>
+            <h1><?= $result['title'] ?></h1>
+            <div class="card-text"><?= $result['content']?></div>
+            <time><?= $result['createdDate'] ?></time>
+        </div>
+         
+    </div>
+
 
 <!-- affichage du postes et controle admin -->
 <?php if(!empty($_SESSION)) : ?>
@@ -41,7 +45,6 @@ $result = $req->fetch();
          
     </div>
 <?php endif; ?>
-
 <!-- gestion des erreur  -->
 <?php
     if(!empty($_post)){
