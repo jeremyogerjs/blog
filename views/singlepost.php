@@ -31,7 +31,8 @@ require('functions/posts/getSinglePost.php');
                 <time><?= $result['createdDate'] ?></time>
             </div>
         </div>
-         
+        <a href="php/action.php?t=1&id=<?=$result['id']?>"><i class="fas fa-thumbs-up"></i></a> 
+   <br />
     </div>
 <?php endif; ?>
 <!-- gestion des erreur  -->
