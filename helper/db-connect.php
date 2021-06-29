@@ -10,8 +10,6 @@ function pdo_connect_mysql() {
     $dbh -> setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
     
     return $dbh;
-        
-  
   }catch (PDOException $e) {
     print "Erreur, vous avez etait deconnecté !: " . $e->getMessage() . "<br/>";
     return false;
