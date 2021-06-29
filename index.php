@@ -85,7 +85,10 @@ if(isset($_GET['action']))
     {
         // appeler le fichier views createTag qui renvoie au formulaire
     } 
-    
+    elseif($_GET['action'] === 'updateArticle')
+    {
+       require('./forms/updateArticle.php');
+    }
 }
 else
 {
