@@ -34,7 +34,7 @@ require('functions/posts/getSinglePost.php');
             </div>
         </div>
 
-        <a href="index.php?action=likes?t=1&id=<?=$result['id']?>"><i class="fas fa-thumbs-up"></i></a> 
+        <a href="index.php?action=likes&t=1&id=<?=$result['id']?>"><i class="fas fa-thumbs-up"></i></a> 
    <br />
     </div>
 <?php endif; ?>
