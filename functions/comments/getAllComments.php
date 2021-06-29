@@ -12,3 +12,15 @@ function getComments($id,$validate)
 
     return $results;
 }
+
+function getAllComments($validate)
+{
+    $sql = "SELECT c.id,c.comment,c.validate,c.pseudo,c.idPosts FROM commentaries AS c WHERE HAVING c.validate = $validate";
+
+    $result = pdo_connect_mysql() ->prepare($sql);
+
+    $result -> execute();
+    $results = $result ->fetchAll();
+
+    return $results;
+}

@@ -1,5 +1,5 @@
 <?php
-
+include'./helper/db-connect.php';
 
 
 $id=$_GET['id'];
@@ -14,7 +14,7 @@ $req->execute(array(
 $req->closeCursor();
 if ($req)
 {
-    $succes='votre commentaire est en cours de validation ';
+    $sucess='votre commentaire est en cours de validation ';
     require ('./views/singlepost.php');
 } 
 else {

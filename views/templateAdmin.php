@@ -74,10 +74,7 @@
             <a class="nav-link" href="index.php?action=adminComments">Commentaires a valider</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="index.php?action=adminTag">Tags</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="index.php?action=adminCategories">Catégories</a>
+            <a class="nav-link" href="index.php?action=createPost">Creer articles</a>
         </li>
         </ul>
     </div>
