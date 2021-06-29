@@ -8,52 +8,58 @@ require('functions/posts/getSinglePost.php');
 ?>
 
 <!-- affichage du postes et controle admin -->
-<?php if(!empty($_SESSION)) : ?>
-  <a href="index.php?action=updateArticle"><i class="fas fa-pencil-alt"></i></a> 
+    <?php if(!empty($_SESSION)) : ?>
+    <a href="index.php?action=updateArticle"><i class="fas fa-pencil-alt"></i></a> 
     <div class="container">
-        <div class='row'>
-             <div class="row row-cols-1">
-                <h1><?= $result['title'] ?></h1>
-                <p><?= $result['content']?></p>
+            <div class='row d-block'>
+                <div class="col-md-4 mx-auto text-center">
+                    <h1><?= $result['title'] ?></h1>
+                    <?= $result['content']?>
+                    
+                </div>
                 <time><?= $result['createdDate'] ?></time>
             </div>
         </div>
-         
-    </div>
 
-<?php else : ?>
- 
-   <div class="container">
-        <div class='row'>
-             <div class="row row-cols-1">
-                <h1><?= $result['title'] ?></h1>
-                <p><?= $result['content']?></p>
+    <?php else : ?>
+    
+        <div class="container">
+            <div class='row d-block'>
+                <div class="col-md-4 mx-auto text-center">
+                    <h1><?= $result['title'] ?></h1>
+                    <?= $result['content']?>
+                    
+                </div>
                 <time><?= $result['createdDate'] ?></time>
             </div>
         </div>
+
         <a href="index.php?action=likes?t=1&id=<?=$result['id']?>"><i class="fas fa-thumbs-up"></i></a> 
    <br />
     </div>
 <?php endif; ?>
+
 <!-- gestion des erreur  -->
 
-<?php
-    if(!empty($_POST))
-    {
-        if(empty($_POST['pseudo'])){
-            echo "<div class='alert alert-danger'>vous devez remplir le champs pseudo </div>";
+    <?php
+        if(!empty($_POST))
+        {
+            if(empty($_POST['pseudo'])){
+                echo "<div class='alert alert-danger'>vous devez remplir le champs pseudo </div>";
+            }
+            elseif(empty($_POST['comment'])){
+                echo "<div class='alert alert-danger'>vous devez remplir le champs commentaire </div>";
+            }
         }
-        elseif(empty($_POST['comment'])){
-            echo "<div class='alert alert-danger'>vous devez remplir le champs commentaire </div>";
-        }
-    }
-    
-?>
+        
+    ?>
     <?php if(isset($sucess)) : ?>
         <p><?= $sucess ?></p>
             <?php elseif(isset($error)) : ?>
         <p><?= $error ?></p>
     <?php endif; ?>
+
+
     <hr>
     <form action="index.php?action=createComm&id=<?=$result['id']?>" method="post">
        <div class="mb-3">
