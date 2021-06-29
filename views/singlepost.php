@@ -1,7 +1,6 @@
 <?php 
 session_start ();
 ob_start(); 
-require_once('./helper/db-connect.php');
 require('./functions/posts/getAllpost.php');
 require('functions/comments/getAllComments.php');
 require('functions/posts/getSinglePost.php');
@@ -9,7 +8,7 @@ require('functions/posts/getSinglePost.php');
 
 <!-- affichage du postes et controle admin -->
     <?php if(!empty($_SESSION)) : ?>
-    <a href="index.php?action=updateArticle"><i class="fas fa-pencil-alt"></i></a> 
+    <a href="index.php?action=updatePost&id=<?=$_GET['id']; ?>"><i class="fas fa-pencil-alt"></i></a> 
     <div class="container">
             <div class='row d-block'>
                 <div class="col-md-4 mx-auto text-center">
@@ -34,7 +33,7 @@ require('functions/posts/getSinglePost.php');
             </div>
         </div>
 
-        <a href="index.php?action=likes?t=1&id=<?=$result['id']?>"><i class="fas fa-thumbs-up"></i></a> 
+        <a href="index.php?action=likes&t=1&id=<?=$result['id']?>"><i class="fas fa-thumbs-up"></i></a> 
    <br />
     </div>
 <?php endif; ?>

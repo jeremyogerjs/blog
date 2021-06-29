@@ -1,14 +1,10 @@
 <?php 
 session_start ();
 ob_start(); // Demarrage pour chaque fichier views
-require('./helper/db-connect.php'); // Déclarer la connection a la base au debut du fichier view
 require('./functions/posts/searchPost.php');
 require('./functions/tags/getTag.php');
 require('./functions/comments/getAllComments.php');
 ?>
-
-
-
 <div>
     <?php if(!empty($_SESSION)) : ?>
         <p>Bienvenue a l'accueil <?php echo $_SESSION['username'] ?> </p>

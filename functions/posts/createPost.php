@@ -1,4 +1,4 @@
-<?php require('./helper/db-connect.php');
+<?php 
 
 $title = $_POST['title'];
 $content = $_POST['content'];

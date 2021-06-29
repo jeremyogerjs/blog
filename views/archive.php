@@ -1,6 +1,5 @@
 <?php ob_start(); 
 session_start();
-require('./helper/db-connect.php');
 require('./functions/posts/getAllpostByCategory.php');
 require('./functions/tags/getTag.php');
 require('./functions/comments/getAllComments.php');

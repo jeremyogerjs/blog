@@ -1,5 +1,5 @@
 <?php 
-
+require_once('./helper/db-connect.php');
 if(isset($_GET['action']))
 {
     if($_GET['action'] === 'admin')
@@ -18,7 +18,7 @@ if(isset($_GET['action']))
 
     else if ($_GET['action'] === 'memberarea')
     {
-        require  ('./views/admin/adminHome.php');
+        require ('./views/admin/adminHome.php');
     }
     else if($_GET['action'] === 'auth')
     {
@@ -82,7 +82,14 @@ if(isset($_GET['action']))
     } 
     elseif($_GET['action'] === 'updatePost')
     {
-       require('./forms/updateArticle.php');
+        if(!empty($_POST))
+        {
+            require('./functions/posts/updatePost.php');
+        }
+        else
+        {
+            require('./views/forms/updateArticle.php');
+        }
     }
     elseif($_GET['action'] === 'likes')
     {

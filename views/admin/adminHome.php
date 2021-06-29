@@ -1,6 +1,5 @@
 <?php
 session_start();
-require("./helper/db-connect.php");
 ob_start();
 
 ?>
