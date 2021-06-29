@@ -1,25 +1,12 @@
 <?php
 
-
-
-// $sql = "SELECT COUNT(p.id), c.id,p.id,p.title,p.content,u.username,p.createdDate,c.catName
-// FROM posts as p   
-// INNER JOIN categories as c ON p.idCategory = c.id 
-// INNER JOIN users as u ON u.id = p.idUser";
-
-// $result = pdo_connect_mysql() -> prepare($sql);
-
-// $result -> execute();
-
-// $results = $result -> fetchAll();
-
 $currentPage = (int) ($_GET['page'] ?? 1 ) ;
-
+$id = $_GET['id'];
 if ($currentPage <= 0) {
     throw new Exception('Numéro de page invalide!');
 }
 
-$reponse = (int) pdo_connect_mysql()->query("SELECT COUNT(id) FROM posts")->fetch(PDO::FETCH_NUM)[0];
+$reponse = (int) pdo_connect_mysql()->query("SELECT COUNT(*) FROM posts AS p WHERE p.idCategory = $id")->fetch(PDO::FETCH_NUM)[0];
 
 $perPage = 10;
 $pages = ceil($reponse / $perPage);
@@ -33,10 +20,10 @@ $result = pdo_connect_mysql() -> prepare("SELECT c.id,p.id,p.title,p.content,u.u
                             FROM posts as p 
                             INNER JOIN categories as c ON p.idCategory = c.id 
                             INNER JOIN users as u ON u.id = p.idUser 
+                            WHERE p.idCategory = $id
                             ORDER BY createdDate DESC LIMIT $perPage 
                             OFFSET $offset");
 
 $result -> execute();
 
 $results = $result ->fetchAll();
-
