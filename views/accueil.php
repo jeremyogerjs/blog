@@ -5,8 +5,8 @@ require('./helper/db-connect.php'); // Déclarer la connection a la bse au debut
 require('./functions/posts/getAllpost.php');
 require('./functions/tags/getTag.php');
 require('./functions/comments/getAllComments.php');
-var_dump($_SESSION);
 ?> 
+
 <div>
 <?php if(!empty($_SESSION)) : ?>
     <p>Bienvenue <?php echo $_SESSION['username'] ?> Je suis l'accueil !!!!</p>

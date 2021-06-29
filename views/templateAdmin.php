@@ -20,9 +20,18 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         </li>
+        <?php if(empty($_SESSION)) : ?>
         <li class="nav-item">
           <a class="nav-link" href="index.php?action=admin">Login</a>
         </li>
+        <?php else : ?>
+          <?php endif; ?>
+          <?php if(!empty($_SESSION)) : ?>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?action=espaceAdmin">Espace admin</a>
+        </li>
+        <?php else : ?>
+          <?php endif; ?>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Categories
@@ -44,7 +53,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.php?action=logout">Se déconnecter</a>
+          <a class="nav-link" href="index.php?action=logout">Deconnect</a>
         </li>
       </ul>
       <form class="d-flex">
@@ -54,6 +63,7 @@
     </div>
   </div>
 </nav>
+<?php if(!empty($_SESSION)) : ?>
 <div class="container d-flex">
     <div class="col-3">
         <ul class="nav nav-tabs flex-column">
@@ -75,8 +85,10 @@
         <?= $content ?>
     </div>
 </div>
+<?php else : echo 'AUTHENTIFIE TOI CONNARD !!';?>
+ 
+<?php endif; ?>
   <footer>
-
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
