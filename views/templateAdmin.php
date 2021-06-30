@@ -55,7 +55,7 @@
   </div>
 </nav>
 <?php if(!empty($_SESSION)) : ?>
-<div class="container d-flex">
+<div class="container d-flex my-3">
   <div class="col-3 me-3">
       <ul class="nav  flex-column">
         <li class="nav-item">
@@ -69,7 +69,7 @@
         </li>
       </ul>
   </div>
-  <div class="col-8">
+  <div class="col-8 my-3">
       <?= $content ?>
   </div>
 </div>

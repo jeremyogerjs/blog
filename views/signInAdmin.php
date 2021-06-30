@@ -3,7 +3,7 @@ session_start();
 ob_start(); 
 // Demarrage pour chaque fichier views
 ?> 
-<div class="card mx-auto p-3 col-4">
+<div class="card mx-auto p-3 col-4 my-5">
 <h5 class="title text-center">Se connecter</h5>
 	<form method="POST" action="index.php?action=auth">
 		<div class="mb-3 ">

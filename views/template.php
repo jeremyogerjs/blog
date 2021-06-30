@@ -57,7 +57,7 @@
     <?= $content ?>
   </div>
   <div class="d-flex justify-content-center my-4">
-          
+
   <?php if(isset($_GET['action']) && $_GET['action'] == 'archivePost' ) : ?>
 
     <?php if ($currentPage > 1): ?>
@@ -78,7 +78,10 @@
         <a href="index.php?action=searchPost&page=<?=$currentPage + 1 ?>" class="btn btn-primary ml-auto">Page suivante >> </a>
     <?php endif; ?>
 
-  <?php else : ?>
+    <?php elseif( isset($_GET['action']) && $_GET['action'] == 'admin') : ?>
+    
+
+    <?php else : ?>
 
     <?php if ($currentPage > 1): ?>
       <a href="index.php?page=<?=$currentPage - 1 ?>" class="btn btn-primary me-2"><< Page précédente  </a>
@@ -89,6 +92,7 @@
     <?php endif; ?>
 
   <?php endif; ?>
+
   </div>
   <footer>
     <div class="navbar navbar-expand-lg navbar-light <?= !empty($_SESSION) ? 'bg-info' : 'bg-danger' ?>">

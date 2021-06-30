@@ -16,9 +16,6 @@ $reponse = (int) pdo_connect_mysql()->query("SELECT COUNT(*) FROM posts AS p WHE
 $perPage = 10;
 $pages = ceil($reponse / $perPage);
 
-var_dump($currentPage);
-// die();
-
 if ($currentPage > $pages) {
     header("Location:index.php?action=404");
 }
