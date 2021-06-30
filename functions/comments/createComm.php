@@ -1,7 +1,4 @@
 <?php
-include'./helper/db-connect.php';
-
-
 $id= isset($_GET['id']) ? $_GET['id'] : '' ;
 $commentaire = htmlspecialchars($_POST['comment']);
 $pseudo = htmlspecialchars($_POST['pseudo']);

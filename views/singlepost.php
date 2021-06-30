@@ -19,11 +19,7 @@ require_once('index.php')
                 </div>
                 <time><?= $result['createdDate'] ?></time>
             </div>
-        </div>
-
-
-    <?php ;
-                      
+        </div>        
     <?php else : ?>
         <!-- display for guest--------------------------------------------------------------------------------------------- -->
         <div class="container">

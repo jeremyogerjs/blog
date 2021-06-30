@@ -7,7 +7,7 @@ function getComments($id,$validate)
     $sql = "SELECT c.id,c.comment,c.validate,c.pseudo,c.idPosts FROM commentaries AS c WHERE c.idPosts = $sanitId AND c.validate = $validate";
 
     $result = pdo_connect_mysql() ->prepare($sql);
-    $result -> execute(array('id'));
+    $result -> execute();
     $results = $result ->fetchAll();
 
     return $results;
