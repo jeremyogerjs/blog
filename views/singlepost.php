@@ -4,9 +4,10 @@ ob_start();
 require('./functions/posts/getAllpost.php');
 require('functions/comments/getAllComments.php');
 require('functions/posts/getSinglePost.php');
+require_once('index.php')
 ?>
 
-<!-- affichage du postes et controle admin -->
+<!-- displays  posts with likes & control admin --------------------------------------------------- -->
     <?php if(!empty($_SESSION)) : ?>
     <a href="index.php?action=updatePost&id=<?=$_GET['id']; ?>"><i class="fas fa-pencil-alt"></i></a> 
     <div class="container">
@@ -20,8 +21,11 @@ require('functions/posts/getSinglePost.php');
             </div>
         </div>
 
+
+    <?php ;
+                      
     <?php else : ?>
-    
+        <!-- display for guest--------------------------------------------------------------------------------------------- -->
         <div class="container">
             <div class='row d-block'>
                 <div class="col-md-4 mx-auto text-center">
@@ -38,7 +42,7 @@ require('functions/posts/getSinglePost.php');
     </div>
 <?php endif; ?>
 
-<!-- gestion des erreur  -->
+<!-- manage error ---------------------------------------------------------------------- -->
 
     <?php
         if(!empty($_POST))
@@ -58,7 +62,7 @@ require('functions/posts/getSinglePost.php');
         <p><?= $error ?></p>
     <?php endif; ?>
 
-
+<!-- forms comments-------------------------------------------------------------------------------------------------------->
     <hr>
     <form action="index.php?action=createComm&id=<?=$result['id']?>" method="post">
        <div class="mb-3">
@@ -75,7 +79,7 @@ require('functions/posts/getSinglePost.php');
     <hr>
     
     <h3>Commentaires:</h3>
-    <!-- affichage des commentaires  -->
+    <!-- display comments ---------------------------------------------------------------------------------------------------------- -->
     <?php ;
     $result = getComments($result['id'],1);
      foreach ($result as $result): ?>

@@ -99,6 +99,14 @@ if(isset($_GET['action']))
     {
        require('./functions/mentions/addLikes.php');
     }
+    elseif($_GET['action'] === 'updateComm')
+    {
+        require('./functions/comments/updateComm.php');
+    }
+    elseif($_GET['action'] === 'delComm')
+    {
+        require('./functions/comments/deleteComm.php');
+    }
     elseif($_GET['action'] === '404')
     {
         require('./views/404.php');
