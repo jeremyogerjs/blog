@@ -1,6 +1,4 @@
 <?php
-require('./helper/db-connect.php');
-
 $bdd = pdo_connect_mysql();
 if(isset($_GET['t'],$_GET['id'])){
 

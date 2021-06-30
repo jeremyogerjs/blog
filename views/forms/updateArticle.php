@@ -4,9 +4,10 @@ ob_start();
 // Demarrage pour chaque fichier views
 require("./functions/categories/getAllCategories.php");
 require('functions/posts/getSinglePost.php');
-var_dump($result);
 ?> 
-<p><?= $msg ?></p>
+<?php if(isset($msg)) : ?>
+  <p><?= $msg ?></p>
+<?php endif;?>
 <form method="POST" action="index.php?action=updatePost&id=<?= $_GET['id']; ?>">
   <div class="mb-3">
     <label for="title" class="form-label">Titre de l'article</label>
