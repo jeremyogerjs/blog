@@ -58,7 +58,25 @@
   </div>
   <div class="d-flex justify-content-center my-4">
           
-  <?php if(isset($_GET['action']) && $_GET['action'] != 'searchPost' && $_GET['action'] != 'archivePost' ) : ?>
+  <?php if(isset($_GET['action']) && $_GET['action'] == 'archivePost' ) : ?>
+
+    <?php if ($currentPage > 1): ?>
+      <a href="index.php?action=archivePost&id=<?=$_GET['id']?>&page=<?=$currentPage - 1 ?>" class="btn btn-primary me-2"><< Page précédente  </a>
+    <?php endif ?>
+
+    <?php if ($currentPage < $pages): ?>
+        <a href="index.php?action=archivePost&id=<?=$_GET['id']?>&page=<?=$currentPage + 1 ?>" class="btn btn-primary ml-auto">Page suivante >> </a>
+    <?php endif; ?>
+
+    <?php elseif(isset($_GET['action']) && $_GET['action'] == 'searchPost' ) : ?>
+
+    <?php if ($currentPage > 1): ?>
+      <a href="index.php?action=searchPostpage=<?=$currentPage - 1 ?>" class="btn btn-primary me-2"><< Page précédente  </a>
+    <?php endif ?>
+
+    <?php if ($currentPage < $pages): ?>
+        <a href="index.php?action=searchPost&page=<?=$currentPage + 1 ?>" class="btn btn-primary ml-auto">Page suivante >> </a>
+    <?php endif; ?>
 
   <?php else : ?>
 

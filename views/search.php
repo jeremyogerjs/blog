@@ -21,7 +21,7 @@ require('./functions/comments/getAllComments.php');
                     <?php foreach(getTag($result['id']) as $tag ) : ?>
                         <span class="badge bg-info text-dark"><?= $tag['tagName']; ?></span>
                     <?php endforeach; ?>
-                    <span class="badge bg-warning text-dark my-3"> <a href="index.php?action=categorie" class="text-dark text-decoration-none"><?= $result['catName'] ; ?></a></span>
+                    <span class="badge bg-warning text-dark my-3"> <a href="index.php?action=archivePost&id=<?= $result['idCategory'] ?>" class="text-dark text-decoration-none"><?= $result['catName'] ; ?></a></span>
                     <span class="badge bg-secondary text-white"><?= count(getComments($result['id'],1));?> commentaire<?= count(getComments($result['id'],1)) > 1 ? 's' : ''?></span>
                     <p class="text-danger">Publié le <?= $result['createdDate'] ?></p>
                 </div>

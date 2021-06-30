@@ -1,6 +1,6 @@
 <?php
 $currentPage = (int) ($_GET['page'] ?? 1 ) ;
-$query = htmlspecialchars($_POST['search']);
+$query = isset($_POST['search']) ? htmlspecialchars($_POST['search']) : '';
 if ($currentPage <= 0) {
     throw new Exception('Numéro de page invalide!');
 }
@@ -14,7 +14,7 @@ if ($currentPage > $pages) {
 }
 $offset = $perPage * ($currentPage - 1);
 
-$result = pdo_connect_mysql() -> prepare("SELECT c.id,p.id,p.title,p.content,u.username,p.createdDate,c.catName 
+$result = pdo_connect_mysql() -> prepare("SELECT c.id,p.id,p.title,p.content,u.username,p.createdDate,c.catName, p.idCategory 
 FROM posts as p 
 INNER JOIN categories as c ON p.idCategory = c.id 
 INNER JOIN users as u ON u.id = p.idUser 
