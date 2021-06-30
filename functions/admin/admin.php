@@ -1,8 +1,4 @@
 <?php 
-
-include './helper/db-connect.php';
-
-
 $dbh = pdo_connect_mysql();
 
 // request to verify login and password

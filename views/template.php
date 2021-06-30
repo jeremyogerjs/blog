@@ -1,4 +1,4 @@
-<?php require('./functions/categories/getAllCategories.php');?>
+<?php require('./functions/categories/getAllCategories.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,15 +21,20 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?action=admin"><i class="fas fa-sign-in" aria-hidden="true">Login</i></a>
-        </li>
+        <?php if(empty($_SESSION)) : ?>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?action=admin">Se connecter</a>
+          </li>
+          <?php else : ?>
+            <li class="nav-item">
+            <a class="nav-link" href="index.php?action=logout">Se deconnecter</a>
+          </li>
+        <?php endif; ?>
         <?php if(!empty($_SESSION)) : ?>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?action=espaceAdmin">Espace admin</a>
-        </li>
-        <?php else : ?>
-          <?php endif; ?>
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?action=espaceAdmin">Espace admin</a>
+          </li>
+        <?php endif; ?>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Categories
@@ -50,12 +55,6 @@
             <li><a class="dropdown-item" href="https://fontawesome.com/v5.15/icons?d=gallery&p=2" target="_blank">font awesome</a></li>
           </ul>
         </li>
-        <?php if(!empty($_SESSION)) : ?>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?action=logout">LogOut</a>
-        </li>
-        <?php else : ?>
-          <?php endif; ?>
       </ul>
       <form class="d-flex" method="POST" action="index.php?action=searchPost">
         <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">

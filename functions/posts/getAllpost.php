@@ -12,7 +12,7 @@ $perPage = 5;
 $pages = ceil($reponse / $perPage);
 
 if ($currentPage > $pages) {
-    throw new Exception("Cette page n'existe pas!");
+    header("Location:index.php?action=404");
 }
 
 $offset = $perPage * ($currentPage - 1);

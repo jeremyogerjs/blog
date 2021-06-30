@@ -1,9 +1,9 @@
 <?php 
 
-$title = $_POST['title'];
-$content = $_POST['content'];
-$createdDate = $_POST['createdDate'];
-$idCategory = $_POST['idCategory'];
+$title = htmlspecialchars($_POST['title']);
+$content = htmlspecialchars($_POST['content']);
+$createdDate = htmlspecialchars($_POST['createdDate']);
+$idCategory = htmlspecialchars($_POST['idCategory']);
 $sql = "INSERT INTO posts (
     title, 
     content, 
@@ -29,7 +29,7 @@ if($results)
 }
 else
 {
-    $msg = "Erreur lros de la creation";
+    $msg = "Erreur lors de la creation.Si le probleme persiste allez boire un café";
     require('./views/forms/createArticles.php');
 }
 

@@ -3,6 +3,7 @@ session_start();
 require('./functions/posts/getAllpostByCategory.php');
 require('./functions/tags/getTag.php');
 require('./functions/comments/getAllComments.php');
+
 ?>
 <?php foreach($results as $result) : ?>
     <div class="card" style="width: 18rem;">

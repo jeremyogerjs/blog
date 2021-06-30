@@ -1,18 +1,23 @@
 <?php
 
 $currentPage = (int) ($_GET['page'] ?? 1 ) ;
-$id = $_GET['id'];
+$id = is_numeric($_GET['id']) ? htmlspecialchars($_GET['id']) : '';
 if ($currentPage <= 0) {
     throw new Exception('Numéro de page invalide!');
 }
+if(empty($id))
+{
+    header("Location:index.php?action=404");
+}
 
 $reponse = (int) pdo_connect_mysql()->query("SELECT COUNT(*) FROM posts AS p WHERE p.idCategory = $id")->fetch(PDO::FETCH_NUM)[0];
+
 
 $perPage = 10;
 $pages = ceil($reponse / $perPage);
 
 if ($currentPage > $pages) {
-    throw new Exception("Cette page n'existe pas!");
+    header("Location:index.php?action=404");
 }
 
 $offset = $perPage * ($currentPage - 1);

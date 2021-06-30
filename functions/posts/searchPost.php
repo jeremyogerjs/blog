@@ -1,6 +1,6 @@
 <?php
 $currentPage = (int) ($_GET['page'] ?? 1 ) ;
-$query = $_POST['search'];
+$query = htmlspecialchars($_POST['search']);
 if ($currentPage <= 0) {
     throw new Exception('Numéro de page invalide!');
 }
@@ -25,4 +25,9 @@ OFFSET $offset");
 $result ->execute(["%$query%"]);
 
 $results = $result ->fetchAll();
+
+if(!$result)
+{
+    header("Location:index.php?action=404");
+}
 

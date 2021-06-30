@@ -2,13 +2,15 @@
 include'./helper/db-connect.php';
 
 
-$id=$_GET['id'];
+$id= isset($_GET['id']) ? $_GET['id'] : '' ;
+$commentaire = htmlspecialchars($_POST['comment']);
+$pseudo = htmlspecialchars($_POST['pseudo']);
 $bdd = pdo_connect_mysql();
 $sql='INSERT INTO commentaries (comment ,pseudo, idPosts,validate) VALUES(?,?,?,?)';
 $req = $bdd-> prepare($sql);
 $req->execute(array(
-    $_POST['comment'],
-    $_POST['pseudo'],
+    $commentaire,
+    $pseudo,
     $id,
     0    ));
 $req->closeCursor();
