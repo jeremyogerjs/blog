@@ -1,7 +1,6 @@
 <?php
 $bdd = pdo_connect_mysql();
 if(isset($_GET['t'],$_GET['id'])){
-
     $getid = (int) $_GET['id'];
     $gett = (bool) $_GET['t'];
     $req = $bdd->prepare('SELECT id FROM Posts WHERE id = ?');
@@ -18,8 +17,5 @@ if(isset($_GET['t'],$_GET['id'])){
             header('location: index.php');
             }
         }
-
-        
-        
     }
 }

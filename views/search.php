@@ -6,32 +6,28 @@ require('./functions/tags/getTag.php');
 require('./functions/comments/getAllComments.php');
 ?>
 <div>
-    <?php if(!empty($_SESSION)) : ?>
-        <p>Bienvenue a l'accueil <?php echo $_SESSION['username'] ?> </p>
-        <?php else : ?>
-        <p>Bienvenue a l'accueil invité !!!!</p>
-    <?php endif; ?>
-    <?php foreach($results as $result) : ?>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <a href="index.php?action=singlepost&id=<?=$result['id']?>" class="text-dark text-decoration-none" >
-                    <h5 class="card-title"><?= $result['title'] ; ?>
-                        <?php if(!empty($_SESSION)) : ?>
-                            <i class="fa fa-window-close my-3" aria-hidden="true"></i>
-                        <?php endif; ?>
-                    </h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><?= $result['username'] ?></h6>
+    <div class="row align-items-center">
+        <?php foreach($results as $result) : ?>
+            <div class="card col-5 m-3">
+                <div class="card-body">
+                    <?php if(!empty($_SESSION)) : ?>
+                        <a href="index.php?action=deletepost&id=<?=$result['id']?>" class="float-end text-danger"><i class="fas fa-times fa-2x"></i></a>
+                    <?php endif; ?>
+                    <a href="index.php?action=singlepost&id=<?=$result['id']?>" class="text-dark text-decoration-none" >
+                        <h5 class="card-title"><?= $result['title'] ; ?></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><?= $result['username'] ?></h6>
+                        <p class="card-text"><?= substr($result['content'],0,65) ?></p>
+                    </a>
+                    <?php foreach(getTag($result['id']) as $tag ) : ?>
+                        <span class="badge bg-info text-dark"><?= $tag['tagName']; ?></span>
+                    <?php endforeach; ?>
+                    <span class="badge bg-warning text-dark my-3"> <a href="index.php?action=categorie" class="text-dark text-decoration-none"><?= $result['catName'] ; ?></a></span>
+                    <span class="badge bg-secondary text-white"><?= count(getComments($result['id'],1));?> commentaire<?= count(getComments($result['id'],1)) > 1 ? 's' : ''?></span>
                     <p class="text-danger">Publié le <?= $result['createdDate'] ?></p>
-                    <p class="card-text"><?= substr($result['content'],0,65) ?></p>
-                </a>
-                <?php foreach(getTag($result['id']) as $tag ) : ?>
-                    <span class="badge bg-info text-dark"><?= $tag['tagName']; ?></span>
-                <?php endforeach; ?>
-                <span class="badge bg-warning text-dark"> <a href="index.php?action=categorie" class="text-dark text-decoration-none"><?= $result['catName'] ; ?></a></span>
-                <span class="badge bg-secondary text-white"><?= count(getComments($result['id'],1));?> commentaire<?= count(getComments($result['id'],1)) > 1 ? 's' : ''?></span>
+                </div>
             </div>
-        </div>
-    <?php endforeach;?>
+        <?php endforeach;?>
+    </div>
 </div>
 
 <?php $content = ob_get_clean(); //ici je stocke tout le contenu entre le ob_start et le ob_get_clean dans la variable $content?>

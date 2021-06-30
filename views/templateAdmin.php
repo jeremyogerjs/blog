@@ -11,7 +11,7 @@
   <title>Blog</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.php">Blog</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,17 +46,6 @@
             <?php endforeach; ?>
           </ul>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            docs
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" target="_blank">Bootstrap</a></li>
-            <li><a class="dropdown-item" href="http://localhost/phpmyadmin/index.php" target="_blank">Phpmyadmin</a></li>
-            <li><a class="dropdown-item" href="https://fontawesome.com/v5.15/icons?d=gallery&p=2" target="_blank">font awesome</a></li>
-          </ul>
-        </li>
-
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -67,8 +56,8 @@
 </nav>
 <?php if(!empty($_SESSION)) : ?>
 <div class="container d-flex">
-    <div class="col-3">
-        <ul class="nav nav-tabs flex-column">
+  <div class="col-3 me-3">
+      <ul class="nav  flex-column">
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.php?action=espaceAdmin">Home</a>
         </li>
@@ -78,16 +67,32 @@
         <li class="nav-item">
             <a class="nav-link" href="index.php?action=createPost">Creer articles</a>
         </li>
-        </ul>
-    </div>
-    <div class="col-8">
-        <?= $content ?>
-    </div>
+      </ul>
+  </div>
+  <div class="col-8">
+      <?= $content ?>
+  </div>
 </div>
 <?php else : echo 'AUTHENTIFIE TOI CONNARD !!';?>
  
 <?php endif; ?>
-  <footer>
+<footer>
+    <div class="navbar navbar-expand-lg navbar-light bg-info">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.php">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.php">Sitemap</a>
+          </li>
+        </ul>
+        <form class="me-5">
+          <i class="fab fa-facebook-square ms-4 fa-lg"></i>
+          <i class="fab fa-twitter fa-lg ms-4"></i>
+        </form>
+      </div>
+    </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>

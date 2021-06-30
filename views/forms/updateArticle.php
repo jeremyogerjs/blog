@@ -8,8 +8,9 @@ require('functions/posts/getSinglePost.php');
 <?php if(isset($msg)) : ?>
   <p><?= $msg ?></p>
 <?php endif;?>
-<form method="POST" action="index.php?action=updatePost&id=<?= $_GET['id']; ?>">
-  <div class="mb-3">
+<h4 class="title text-center">Modifier un article !!!!</h4>
+<form method="POST" action="index.php?action=updatePost&id=<?= $_GET['id']; ?>" class="my-5">
+  <div class="mb-3 col-4">
     <label for="title" class="form-label">Titre de l'article</label>
     <input type="text" class="form-control" name="title" id="title" aria-describedby="titleHelp">
     <div id="titleHelp" class="form-text">Titre actuel : <?= $result['title'] ?></div>
@@ -18,20 +19,27 @@ require('functions/posts/getSinglePost.php');
     <label for="content" class="form-label">Content</label>
     <textarea name="content" id="content" cols="100" rows="5"><?= $result['content'] ?></textarea>
   </div>
-  <div class="mb-3">
-    <label for="createdDate" class="form-label">Date de création</label>
-    <input type="date" class="form-control" name="createdDate" id="createdDate" aria-describedby="createdDateHelp">
-    <div id="createdDateHelp" class="form-text">Date création actuel : <?= $result['createdDate'] ?></div>
+  <div class="row align-items-end">
+    <div class="col-4">
+      <label for="createdDate" class="form-label">Date de création</label>
+      <input type="date" class="form-control" name="createdDate" id="createdDate" aria-describedby="createdDateHelp">
+      <div id="createdDateHelp" class="form-text">Date création actuel : <?= $result['createdDate'] ?></div>
+    </div>
+    <div class="col-4">
+      <select class="form-select" name="idCategory" aria-label="Default select example" aria-describedby="categorieHelp">
+        <option selected>Selectionner la catégorie</option>
+        <?php foreach($results as $categorie) : ?>
+            <option value="<?= $categorie['id'] ?>"><?= $categorie['catName'] ?></option>
+        <?php endforeach; ?>
+      </select>
+      <div id="categorieHelp" class="form-text">Catégorie actuel : <?= $result['catName'] ?></div>
+    </div>
+    <div class="col-4 mb-4">
+    <button type="submit" class="btn btn-primary">Edit</button>
+    <button type="submit" class="btn btn-warning"><a href="index.php?action=singlepost&id=<?=$_GET['id'] ?>" class="text-decoration-none link-dark">Retour a l'article</a></button>
+    </div>
   </div>
-  <select class="form-select" name="idCategory" aria-label="Default select example" aria-describedby="categorieHelp">
-    <option selected>Selectionner la catégorie</option>
-    <?php foreach($results as $categorie) : ?>
-        <option value="<?= $categorie['id'] ?>"><?= $categorie['catName'] ?></option>
-    <?php endforeach; ?>
-</select>
-    <div id="categorieHelp" class="form-text">Catégorie actuel : <?= $result['catName'] ?></div>
-  <button type="submit" class="btn btn-primary my-3">Edit</button>
-  <button type="submit" class="btn btn-warning my-3"><a href="index.php?action=singlepost&id=<?=$_GET['id'] ?>" class="text-decoration-none link-dark">Retour a l'article</a></button>
+    
 </form>
 
 <?php $content = ob_get_clean(); ?>
