@@ -54,3 +54,72 @@ afin d'aider l'utilisateur à filtrer ses recherches.
 ![alt text](https://trello-attachments.s3.amazonaws.com/60d91951bbfdff08d80e3e0b/60d9196508e4073dc4132568/fa3a4b7077340953aa99d47c08bddcf9/Capture_d%E2%80%99%C3%A9cran_(51).png)
 **arborescence du blog:**
 ![alt text](https://trello-attachments.s3.amazonaws.com/60d91951bbfdff08d80e3e0b/60da8c2f6cf94b843f392dfc/54f47614bd62548780ae35f290eb46ab/Capture_d%E2%80%99%C3%A9cran_(86).png)
+
+### Spécificité Techniques :
+
+Structure de dossier
+--------------------
+- Pour la structure du dossier nous avons séparé les vues dans le dossier `views` et nous avons séparé les vues concernant le côté administrateur dans `views/admin` et aussi dans le sous dossier `views/forms` nous avons stocker les formulaires concernant les articles.
+- Dans le dossier `functions` chaque sous dossier concerne une table de la bdd(e.g `functions/categories`) et dans chque dossier ce trouve un ou plusieurs fichiers comportant une requête spécifique a la table.
+- La connexion a la base de donnée est séparé dans un dossier `helper` comportant  un fichier `db-connect.php` qui est appeler en premier dans le fichier `index.php` qui ce trouve a la racine du dossier project et ce qui permet de transmettre la connexion a tout les fichiers qui en ont besoin.
+- Le fichier `index.php` est un "routeur" qui permet de rediriger l'utilisateur pour les diverses fonctionnalitées et permet une convention de nommage pour les liens (e.g `href="index.php?action=updatePost"`).
+
+Cette structure a permis de bien séparé et de pouvoir travailler sereinement en groupe pour que chaque participant puisse travailler sur un fichier spécifique.
+```
+project
+│   README.md
+│   index.php    
+│
+└───functions
+│   │   file011.txt
+│   │   file012.txt
+│   │
+│   └───admin
+│   |    │   admin.php
+│   |    │   logout.php
+│   |    
+│   |
+│   └─── categories
+|   |       | getAllCategories.php
+|   |       
+|   |       
+|   |
+|   └────── comments
+|   |         | createComments.php
+|   |         | getAllComments.php
+|   |
+|   |
+|   |
+|   └────── mentions
+|   |           | addLike.php
+|   |           
+|
+|              
+└───helper
+|   │   db-connect.php
+|
+|
+|
+|
+└───views
+     |
+     |
+     |
+     └───────── admin
+     |            | adminComments.php
+     |            | adminHome.php
+     |
+     |
+     └───────── forms
+     |           | createArticles.php
+     |           | updateArticle.php
+     |
+     |
+     | 404.php
+     | archive.php
+     | search.php
+     | signInAdmin.php
+     | singlePost.php
+     | template.php
+     | templateAdmin.php
+```
