@@ -64,7 +64,7 @@ Structure de dossier
 - La connexion a la base de donnée est séparé dans un dossier `helper` comportant  un fichier `db-connect.php` qui est appeler en premier dans le fichier `index.php` qui ce trouve a la racine du dossier project et ce qui permet de transmettre la connexion a tout les fichiers qui en ont besoin.
 - Le fichier `index.php` est un "routeur" qui permet de rediriger l'utilisateur pour les diverses fonctionnalitées et permet une convention de nommage pour les liens (e.g `href="index.php?action=updatePost"`).
 
-Cette structure a permis de bien séparé et de pouvoir travailler sereinement en groupe pour que chaque participant puisse travailler sur un fichier spécifique.
+Cette structure a permis de bien séparé les fonctionnalité et de pouvoir travailler sereinement en groupe pour que chaque personne puisse travailler sur un fichier spécifique.
 ```
 project
 │   README.md
