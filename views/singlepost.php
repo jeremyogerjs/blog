@@ -75,18 +75,20 @@ require_once('index.php')
 </div>
     
     <!-- display comments ---------------------------------------------------------------------------------------------------------- -->
-    <div class="card" style="width: 18rem;">
-        <div class="card-header">
-        <h3>Commentaires</h3>
-        </div>.
-        <ul class="list-group list-group-flush">
-        <?php $result = getComments($result['id'],1);
+<div class="mx-auto col-7">
+    <h3>Commentaires</h3>
+    <?php $result = getComments($result['id'],1);
             foreach ($result as $result): ?>
-            <li class="list-group-item "><?= $result['comment']?></li>
-        <?php endforeach; ?>
-        </ul>
+    <div class="card  my-3">
+        <div class="card-header">
+            <h6 class="card-subtitle mb-2 fw-bold">Pseudo : <?= $result['pseudo']?></h6>
+        </div>
+        <div class="card-body">
+            <p class="card-text"><?= $result['comment']?></p>
+        </div>
     </div>
-    
+    <?php endforeach; ?>
+</div>
 <?php $content = ob_get_clean(); //ici je stocke tout le contenu entre le ob_start et le ob_get_clean dans la variable $content?>
 
 <?php require('template.php'); //ici j'appelle le fichier template.php pour lui envoyer la variable $content?>

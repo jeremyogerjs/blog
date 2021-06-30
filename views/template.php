@@ -60,37 +60,50 @@
 
   <?php if(isset($_GET['action']) && $_GET['action'] == 'archivePost' ) : ?>
 
-    <?php if ($currentPage > 1): ?>
-      <a href="index.php?action=archivePost&id=<?=$_GET['id']?>&page=<?=$currentPage - 1 ?>" class="btn btn-primary me-2"><< Page précédente  </a>
-    <?php endif ?>
-
-    <?php if ($currentPage < $pages): ?>
-        <a href="index.php?action=archivePost&id=<?=$_GET['id']?>&page=<?=$currentPage + 1 ?>" class="btn btn-primary ml-auto">Page suivante >> </a>
-    <?php endif; ?>
+    <ul class="pagination">
+      <?php if ($currentPage > 1): ?>
+        <li class="page-item">
+          <a href="index.php?action=archivePost&id=<?=$_GET['id']?>&page=<?=$currentPage - 1 ?>" class="page-link"><< Page précédente  </a>
+        </li>
+      <?php endif ?>
+      <?php if ($currentPage < $pages): ?>
+      <li class="page-item">
+        <a href="index.php?action=archivePost&id=<?=$_GET['id']?>&page=<?=$currentPage + 1 ?>" class="page-link">Page suivante >> </a>
+      </li>
+      <?php endif; ?>
+    </ul>
 
     <?php elseif(isset($_GET['action']) && $_GET['action'] == 'searchPost' ) : ?>
 
-    <?php if ($currentPage > 1): ?>
-      <a href="index.php?action=searchPostpage=<?=$currentPage - 1 ?>" class="btn btn-primary me-2"><< Page précédente  </a>
-    <?php endif ?>
+      <ul class="pagination">
+        <?php if ($currentPage > 1): ?>
+        <li class="page-item">
+          <a href="index.php?action=searchPostpage=<?=$currentPage - 1 ?>" class="page-link"><< Page précédente  </a>
+        </li>
+        <?php endif ?>
+        <?php if ($currentPage < $pages): ?>
+        <li class="page-item">
+          <a href="index.php?action=searchPost&page=<?=$currentPage + 1 ?>" class="page-link">Page suivante >> </a>
+        </li>
+        <?php endif; ?>
+      </ul>
 
-    <?php if ($currentPage < $pages): ?>
-        <a href="index.php?action=searchPost&page=<?=$currentPage + 1 ?>" class="btn btn-primary ml-auto">Page suivante >> </a>
-    <?php endif; ?>
-
-    <?php elseif( isset($_GET['action']) && $_GET['action'] == 'admin') : ?>
-    
-
+    <?php elseif( isset($_GET['action']) && $_GET['action'] == 'admin' || $_GET['action'] == 'singlepost' || $_GET['action'] == 'memberarea' || $_GET['action'] == 'adminComments' ) : ?>
     <?php else : ?>
 
-    <?php if ($currentPage > 1): ?>
-      <a href="index.php?page=<?=$currentPage - 1 ?>" class="btn btn-primary me-2"><< Page précédente  </a>
-    <?php endif ?>
+    <ul class="pagination">
+      <?php if ($currentPage > 1): ?>
+      <li class="page-item">
+        <a href="index.php?page=<?=$currentPage - 1 ?>" class="page-link"><< Page précédente  </a>
+      </li>
+      <?php endif ?>
 
-    <?php if ($currentPage < $pages): ?>
-        <a href="index.php?page=<?=$currentPage + 1 ?>" class="btn btn-primary ml-auto">Page suivante >> </a>
-    <?php endif; ?>
-
+      <?php if ($currentPage < $pages): ?>
+      <li class="page-item">
+          <a href="index.php?page=<?=$currentPage + 1 ?>" class="page-link ms-2">Page suivante >> </a>
+      </li>
+      <?php endif; ?>
+    </ul>
   <?php endif; ?>
 
   </div>
