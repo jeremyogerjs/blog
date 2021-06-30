@@ -4,6 +4,7 @@ ob_start();
 require('./functions/posts/getAllpost.php');
 require('functions/comments/getAllComments.php');
 require('functions/posts/getSinglePost.php');
+require('./functions/mentions/addLikes.php');
 require_once('index.php')
 ?>
 
@@ -24,7 +25,7 @@ require_once('index.php')
             <time class="text-muted">Date de parution : <?= $result['createdDate'] ?></time>
             <p class="text-break my-3"><?= $result['content']?></p>
             
-            <p class="float-end text-primary "><a href="index.php?action=likes&t=1&id=<?=$result['id']?>" class="text-decoration-none" ><i class="fas fa-thumbs-up fa-lg"></i> J'aime</a></p>
+            <p class="float-end text-primary "><a href="index.php?action=likes&t=1&id=<?=$result['id']?>" class="text-decoration-none" ><i class="fas fa-thumbs-up fa-lg"></i> J'aime</a>(<?=count(getLikes())?>)</p>
         </div>
     <?php endif; ?>
 

@@ -19,3 +19,15 @@ if(isset($_GET['t'],$_GET['id'])){
         }
     }
 }
+
+
+
+function getLikes(){
+    $bdd = pdo_connect_mysql();
+    $req = $bdd->prepare('SELECT id,idPosts,likes FROM mentions WHERE id ');
+    $req->execute();
+    $result=$req->fetch();
+
+    return $result;
+
+}
