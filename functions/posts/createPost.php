@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $title = htmlspecialchars($_POST['title']);
 $content = htmlspecialchars($_POST['content']);
@@ -14,8 +14,8 @@ $sql = "INSERT INTO posts (
     idCategory)
 VALUES (:title,:content,:idUser,:createdDate,:idCategory)";
 
-$result = pdo_connect_mysql() -> prepare($sql);
-$result -> execute(array(
+$result = pdo_connect_mysql()->prepare($sql);
+$result->execute(array(
     ':title' => $title,
     ':content' => $content,
     ':idUser' => 1,
@@ -23,27 +23,21 @@ $result -> execute(array(
     ':idCategory' => $idCategory
 ));
 
-if($result){
+if ($result) {
     $sql1 = "INSERT INTO post_tag (
         idPost,
         idTag)
         VALUES ((SELECT MAX(id) FROM posts),:idTag)";
-    $result1 = pdo_connect_mysql() -> prepare($sql1);  
- 
-    $result1 -> execute(array(
-        ':idTag' => $idTag 
+    $result1 = pdo_connect_mysql()->prepare($sql1);
+
+    $result1->execute(array(
+        ':idTag' => $idTag
     ));
 }
 
-if($result)
-{
+if ($result) {
     header("Location:index.php");
-}
-else
-{
+} else {
     $msg = "Erreur lors de la creation.Si le probleme persiste allez boire un café";
     require('./views/forms/createArticles.php');
 }
-
-
-

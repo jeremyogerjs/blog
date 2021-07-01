@@ -1,6 +1,5 @@
 <?php
 session_start ();
-var_dump($_SESSION);
 // On démarre la session
 
 // On détruit les variables de notre session
@@ -11,5 +10,4 @@ if(isset($_SESSION)) {
 }
 
 // On redirige le visiteur vers la page d'accueil
-header ('location: ./index.php');
-?>
+header ('location:index.php');

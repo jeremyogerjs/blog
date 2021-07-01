@@ -2,8 +2,8 @@
 
 $sql = "SELECT * FROM categories";
 
-$result = pdo_connect_mysql() ->prepare($sql);
+$result = pdo_connect_mysql()->prepare($sql);
 
-$result ->execute();
+$result->execute();
 
-$results = $result ->fetchAll();
+$results = $result->fetchAll();

@@ -6,7 +6,6 @@ $req = $bdd->prepare("SELECT p.title,p.content,p.createdDate,p.id,c.catName FROM
 $req->execute(array($id));
 $result = $req->fetch();
 
-if(!$result)
-{
-    header("Location:index.php?action=404");
+if (!$result) {
+    header("Location:index.php?target=404&action=notFound");
 }

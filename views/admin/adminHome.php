@@ -5,7 +5,7 @@ ob_start();
 ?>
 
 
-<h1>Bienvenue <?php echo $_SESSION['username'] ?> heureux de te revoir !!!!</h1>
+<h1 class="text-center">Bienvenue <?php echo $_SESSION['username'] ?> heureux de te revoir !!!!</h1>
 
 <?php $content = ob_get_clean(); ?>
 

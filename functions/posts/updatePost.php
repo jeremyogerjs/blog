@@ -12,10 +12,9 @@ idUser          = :idUser,
 createdDate     = :createdDate,
 idCategory      = :idCategory
 WHERE id = :id";
-// $2y$12$7x/627FzgvQV/wJsh8YW.eFEPbzYjdcqa76sJzPzXK3BErFEmSxJu
 
-$result = pdo_connect_mysql() -> prepare($sql);
-$result ->execute(array(
+$result = pdo_connect_mysql()->prepare($sql);
+$result->execute(array(
     ':title'        => $title,
     ':idUser'       => 1,
     ':content'      => $content,
@@ -23,25 +22,21 @@ $result ->execute(array(
     ':idCategory'   => $idCategory,
     ':id'           => $id
 ));
-if($result)
-{
+if ($result) {
     $sql1 = "UPDATE post_tag SET
         idTag   = :idTag
         WHERE idPost = :id";
-    $result1 = pdo_connect_mysql() -> prepare($sql1);  
+    $result1 = pdo_connect_mysql()->prepare($sql1);
 
-    $result1 -> execute(array(
+    $result1->execute(array(
         ':idTag'    => $idTag,
         ':id'       => $id
     ));
 }
-if($result)
-{
+if ($result) {
     $msg = "La modification a été pris en compte !!!!";
     require('./views/forms/updateArticle.php');
-}
-else
-{
+} else {
     $msg = "Erreur lors de la modification, veuillez réessayer.Si le probleme persiste allez boire un café";
     require('./views/forms/updateArticle.php');
 }

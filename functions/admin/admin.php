@@ -28,15 +28,14 @@ try {
 			$_SESSION['username'] = $_POST['username'];
 			$_SESSION['password'] = $_POST['password'];
 
-			header("location:index.php?action=memberarea");
-			echo("fhrif");
+			header("location:index.php?target=admin&action=home");
 		}
 		else
 		{
 			echo '<script type="text/javascript">alert("Your login or your password is incorrect!");
 			</script>';
 
-			header("location:index.php?action=auth");
+			header("location:index.php?target=admin&action=auth");
 		}
 
 	}
@@ -46,4 +45,3 @@ catch (PDOException $e)
 		die();
 	}
 }
-	?>

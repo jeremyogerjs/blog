@@ -1,119 +1,103 @@
-<?php 
+<?php
 require_once('./helper/db-connect.php');
-if(isset($_GET['action']))
-{
-    if($_GET['action'] === 'admin')
-    {
-        if(!empty($_POST)) {
-            require  ('./views/admin/adminHome.php');
-        }
-        else {
-            require('./views/signInAdmin.php');
-        }
-    }
-    else if($_GET['action'] === 'logout')
-    {
-        require('./functions/admin/logout.php');
-    }
 
-    else if ($_GET['action'] === 'memberarea')
-    {
-        require ('./views/admin/adminHome.php');
-    }
-    else if($_GET['action'] === 'auth')
-    {
-        if(!empty($_POST)) {
-            require  ('./functions/admin/admin.php');
+if (isset($_GET['target'])) {
+    if ($_GET['target'] === 'post') {
+        switch ($_GET['action']) {
+            case 'all':
+                require('./functions/posts/getAllpost.php');
+                break;
+            case 'single':
+                require('./views/singlepost.php');
+                break;
+            case 'delete':
+                require('./functions/posts/deletePost.php');
+                break;
+            case 'search':
+                require('./views/search.php');
+                break;
+            case 'create':
+                if (!empty($_POST)) {
+                    require('./functions/posts/createPost.php');
+                } else {
+                    require('./views/forms/createArticles.php');
+                }
+                break;
+            case 'update':
+                if (!empty($_POST)) {
+                    require('./functions/posts/updatePost.php'); 
+                } else {
+                    require('./views/forms/updateArticle.php'); 
+                }
+                break;
+            default:
+                break;
         }
-        else {
-            require('./views/signInAdmin.php');
+    } else if ($_GET['target'] === 'admin') {
+        switch ($_GET['action']) {
+            case 'home':
+                require('./views/admin/adminHome.php');
+                break;
+            case 'auth':
+                if (!empty($_POST)) {
+                    require('./functions/admin/admin.php');
+                } else {
+                    require('./views/signInAdmin.php');
+                }
+                break;
+            case 'logout':
+                require('./functions/admin/logout.php');
+                break;
+            case 'unCheckCommentaries':
+                require('./views/admin/adminComments.php');
+                break;
+            default:
+                break;
         }
-    }
-    else if($_GET['action'] === 'deletepost')
-    {
-        require('./functions/posts/deletePost.php');
-    }
-    else if($_GET['action'] === 'categorie')
-    {
-        require('./views/archive.php');
-    }
-    else if ($_GET['action'] === 'singlepost')
-    {
-        require ('./views/singlepost.php');
-    }
-    else if ($_GET['action'] === 'createComm')
-    {
-        if(!empty($_POST))
-        {
-            require ('./functions/comments/createComm.php');
-        }
-        else
-        {
-            require ('./views/singlepost.php');
+    } else if ($_GET['target'] === "categories") {
+        switch ($_GET['action']) {
+            case 'all':
+                require('./views/archive.php');
+                break;
 
+            default:
+                break;
+        }
+    } else if ($_GET['target'] === 'commentaries') {
+        switch ($_GET['action']) {
+            case 'create':
+                if (!empty($_POST)) {
+                    require('./functions/comments/createComm.php');
+                } else {
+                    require('./views/singlepost.php');
+                }
+                break;
+            case 'update':
+                require('./functions/comments/updateComm.php');
+                break;
+            case 'delete':
+                require('./functions/comments/deleteComm.php');
+                break;
+            default:
+                break;
+        }
+    } else if ($_GET['target'] === 'likes') {
+        switch ($_GET['action']) {
+            case 'create':
+                require('./functions/mentions/addLikes.php');
+                break;
+            default:               
+                break;
+        }
+    } else if ($_GET['target'] === '404') {
+        switch ($_GET['action']) {
+            case 'notFound':
+                require('./views/404.php');
+                break;
+            default:
+                break;
         }
     }
-    else if ($_GET['action'] === 'getAllpost')
-    {
-        require('./functions/posts/getAllpost.php');
-    }
-    elseif($_GET['action'] === 'searchPost')
-    {
-        require ('./views/search.php');
-    }
-    elseif($_GET['action'] === 'archivePost')
-    {
-        require ('./views/archive.php');
-    }
-    elseif($_GET['action'] === "espaceAdmin")
-    {
-        require('./views/admin/adminHome.php');
-    }
-    elseif($_GET['action'] === 'adminComments')
-    {
-        require('./views/admin/adminComments.php'); // a changer
-    }
-    elseif($_GET['action'] === 'createPost')
-    {
-        if(!empty($_POST))
-        {
-            require('./functions/posts/createPost.php');
-        }
-        else
-        {
-            require('./views/forms/createArticles.php');
-        }
-    } 
-    elseif($_GET['action'] === 'updatePost')
-    {
-        if(!empty($_POST))
-        {
-            require('./functions/posts/updatePost.php');
-        }
-        else
-        {
-            require('./views/forms/updateArticle.php');
-        }
-    }
-    elseif($_GET['action'] === 'likes')
-    {
-       require('./functions/mentions/addLikes.php');
-    }
-    elseif($_GET['action'] === 'updateComm')
-    {
-        require('./functions/comments/updateComm.php');
-    }
-    elseif($_GET['action'] === 'delComm')
-    {
-        require('./functions/comments/deleteComm.php');
-    }
-    elseif($_GET['action'] === '404')
-    {
-        require('./views/404.php');
-    }
-}
-else
-{
-    //tout les postes !!!!
+} else {
     require('./views/accueil.php');
 }
