@@ -77,11 +77,18 @@ afin d'aider l'utilisateur à filtrer ses recherches.
 **Arborescence du blog:**
 ![alt text](https://trello-attachments.s3.amazonaws.com/60d91951bbfdff08d80e3e0b/60da8c2f6cf94b843f392dfc/54f47614bd62548780ae35f290eb46ab/Capture_d%E2%80%99%C3%A9cran_(86).png)
 
+### Guide installation local :
+
+Pour pouvoir installer le projet en local il vous faudra dézipper le fichier `blog.zip` qui contient la base de donnée exporté sur `phpMyAdmin 5.1.0`.   
+Et par la suite importer la base de donnée sur `phpMyAdmin 5.1.0` et lancé un serveur local comme [`xampp`](https://www.apachefriends.org/fr/index.html) ou [`laragon`](https://laragon.org/).     
+- Pour xampp faite cette commande `git clone blog-bdd-sql-mysql-php-squad1` dans le dossier `xampp/htdocs/`.     
+- Pour laragon faite cette commande `git clone blog-bdd-sql-mysql-php-squad1` dans le dossier `laragon/www/`.
+
 ### Spécificités Techniques :
 Spécificité 
 -----------
 
-Nous avons décidé d'utilisé bootstrap pour faciliter le développement côté front-end pour livrer dans les délais.Du côté back-end nous utilisons le langage php en procédural, et nous testons chaque donnée reçu via un formulaire et aussi les données récupérer via l'url et nous redirigons s'il y a un probléme rencontré.
+Nous avons décidé d'utilisé [bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) pour faciliter le développement côté front-end pour livrer dans les délais.Du côté back-end nous utilisons le langage [php](https://www.php.net/) en procédural, et nous testons chaque donnée reçu via un formulaire et aussi les données récupérer via l'url et nous redirigons s'il y a un probléme rencontré.
 
 Structure de dossier
 --------------------
