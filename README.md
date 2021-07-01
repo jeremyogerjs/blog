@@ -78,16 +78,20 @@ afin d'aider l'utilisateur à filtrer ses recherches.
 ![alt text](https://trello-attachments.s3.amazonaws.com/60d91951bbfdff08d80e3e0b/60da8c2f6cf94b843f392dfc/54f47614bd62548780ae35f290eb46ab/Capture_d%E2%80%99%C3%A9cran_(86).png)
 
 ### Spécificités Techniques :
+Spécificité 
+-----------
+
+Nous avons décidé d'utilisé bootstrap pour faciliter le développement côté front-end pour livrer dans les délais.Du côté back-end nous utilisons le langage php en procédural, et nous testons chaque donnée reçu via un formulaire et aussi les données récupérer via l'url et nous redirigons s'il y a un probléme rencontré.
 
 Structure de dossier
 --------------------
-- Pour la structure du dossier nous avons séparé les vues dans le dossier `views` et séparé les vues concernant le côté administrateur dans `views/admin`. Dans le sous dossier `views/forms` nous avons stocké les formulaires concernant les articles.
+- Pour la structure du dossier nous avons séparé les vues dans le dossier `views` et séparé en sous-dossier le côté administrateur dans `views/admin` et le côté formulaire dans `views/forms`.
 
-- Dans le dossier `functions`, chaque sous dossier concerne une table de la bdd(e.g `functions/categories`) et dans chaque dossier se trouve un ou plusieurs fichiers comportant une requête spécifique a la table.
+- Dans le dossier `functions`, chaque sous dossier concerne une table de la bdd(e.g `functions/categories`) et dans chaque dossier se trouve un ou plusieurs fichiers comportant une/deux requêtes spécifique a la table.
 
 - La connexion a la base de données est séparée dans un dossier `helper` comportant  un fichier `db-connect.php` qui est appelé en premier dans le fichier `index.php` qui se trouve a la racine du dossier project, ce qui permet de transmettre la connexion à tous les fichiers qui en ont besoin.
 
-- Le fichier `index.php` est un "routeur" qui permet de rediriger l'utilisateur pour les diverses fonctionnalités et permet une convention de nommage pour les liens (e.g `href="index.php?action=updatePost"`).
+- Le fichier `index.php` est un "routeur" qui permet de rediriger l'utilisateur pour les diverses fonctionnalités et permet une convention de nommage pour les liens (e.g `href="index.php?target=post&action=update"`).
 
 Cette structure a permis de bien séparer les fonctionnalités et de pouvoir travailler sereinement en groupe pour que chacun puisse travailler sur un fichier spécifique.
 ```
