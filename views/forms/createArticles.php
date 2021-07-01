@@ -3,14 +3,26 @@ session_start();
 ob_start(); 
 // Demarrage pour chaque fichier views
 require("./functions/categories/getAllCategories.php");
+require("./functions/tags/getAlltag.php");
+var_dump($tags);
 ?> 
 <h4 class="title text-center">Creer un article !!!</h4>
   <form method="POST" action="index.php?action=createPost" class="my-5">
-    <div class="mb-3 col-4">
+  <div class="row align-items-end">
+    <div class=" col-4">
       <label for="title" class="form-label">Titre de l'article</label>
       <input type="text" name="title" class="form-control" id="title" placeholder="Your title">
     </div>
-    <div class="mb-3 d-flex flex-column">
+    <div class="col-4">
+        <select class="form-select " name="idTag" aria-label="Default select example">
+          <option selected>Selectionner le tag</option>
+          <?php foreach($tags as $tag) : ?>
+              <option value="<?= $tag['id'] ?>"><?= $tag['tagName'] ?></option>
+          <?php endforeach; ?>
+        </select>
+      </div>
+  </div>
+    <div class="my-4 d-flex flex-column">
       <label for="content" class="form-label">Content</label>
       <textarea name="content" id="content" cols="100" rows="5" placeholder="content..."></textarea>
     </div>
@@ -27,9 +39,9 @@ require("./functions/categories/getAllCategories.php");
           <?php endforeach; ?>
         </select>
       </div>
-      <dv class="col">
+      <div class="col">
         <button type="submit" class="btn btn-success">Create</button>
-      </dv>
+      </div>
     </div>
   </form>
 

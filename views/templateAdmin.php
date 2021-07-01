@@ -57,34 +57,17 @@
 <?php if(!empty($_SESSION)) : ?>
 <div class="container d-flex my-3">
   <div class="col-3 me-3">
-      <ul class="nav  flex-column">
-        <li class="nav-item">
-            <!-- <a class="nav-link active" aria-current="page" href="index.php?action=espaceAdmin">Home</a> -->
-        </li>
-        <li class="nav-item">
-            
-        </li>
-        <li class="nav-item">
-            
-        </li>
-      </ul>
+    <ul class="nav  flex-column  bg-success">
+      <li class="nav-item">
+        <a class="nav-link text-light text-decoration-none " href="index.php?action=adminComments"><i class="fas fa-check fa-3 me-2" ></i>Commentaires a valider</a>
+      </li>
+      <li class="nav-item mt-2">
+        <a class="nav-link text-light text-decoration-none" href="index.php?action=createPost"><i class="fas fa-pen-fancy fa-3 me-2"></i>Creer articles</a>
+      </li>
+    </ul>
   </div>
   <div class="col-8 my-3">
-      <?= $content ?>
-      <div class="row my-5 ms-5 ">
-        <div class="card bg-success" style="width: 18rem;">
-          <div class="card-body">
-            <a class="nav-link text-light text-decoration-none " href="index.php?action=adminComments"><i class="fas fa-check" class="fa-3"></i>Commentaires a valider</a>
-          </div>
-        </div>
-        <div class="card bg-success" style="width: 18rem;">
-          <div class="card-body"> 
-            <a class="nav-link text-light text-decoration-none" href="index.php?action=createPost"><i class="fas fa-pen-fancy"></i>Creer articles</a>
-          </div>
-        </div>
-      </div>
-      
-      
+    <?= $content ?>
   </div>
 </div>
 <?php else : echo 'AUTHENTIFIE TOI CONNARD !!';?>

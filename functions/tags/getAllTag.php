@@ -2,8 +2,8 @@
 
 $sql = "SELECT * FROM tags";
 
-$result = pdo_connect_mysql() -> prepare($sql);
+$stmt = pdo_connect_mysql() -> prepare($sql);
 
-$result -> execute();
+$stmt -> execute();
 
-$results = $result ->fetchAll();
+$tags = $stmt ->fetchAll();

@@ -22,11 +22,11 @@ if(isset($_GET['t'],$_GET['id'])){
 
 
 
-function getLikes(){
+function getLikes($id){
     $bdd = pdo_connect_mysql();
-    $req = $bdd->prepare('SELECT id,idPosts,likes FROM mentions WHERE id ');
-    $req->execute();
-    $result=$req->fetch();
+    $req = $bdd->prepare('SELECT id,idPosts,likes FROM mentions WHERE idPosts = ? ');
+    $req->execute([$id]);
+    $result=$req->fetchAll();
 
     return $result;
 
