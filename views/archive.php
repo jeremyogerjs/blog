@@ -3,6 +3,7 @@ session_start();
 require('./functions/posts/getAllpostByCategory.php');
 require('./functions/tags/getTag.php');
 require('./functions/comments/getAllComments.php');
+require('./functions/mentions/addLikes.php');
 
 ?>
 <div class="row align-items-center">
@@ -23,6 +24,7 @@ require('./functions/comments/getAllComments.php');
                 <?php endforeach; ?>
                 <span class="badge bg-warning text-dark my-3"> <a href="index.php?action=archivePost&id=<?= $result['idCategory'] ?>" class="text-dark text-decoration-none"><?= $result['catName'] ; ?></a></span>
                 <span class="badge bg-secondary text-white"><?= count(getComments($result['id'],1));?> commentaire<?= count(getComments($result['id'],1)) > 1 ? 's' : ''?></span>
+                <span  class="badge bg-primary"><i class="fas fa-thumbs-up fa-lg"></i>(<?= count(getLikes($result['id']));?>)</span>
                 <p class="text-danger">Publié le <?= $result['createdDate'] ?></p>
             </div>
         </div>

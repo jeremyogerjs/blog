@@ -13,21 +13,17 @@ if(isset($_GET['t'],$_GET['id'])){
          if ($gett=1){
             $insLike=$bdd->prepare('INSERT INTO mentions(idPosts,likes)VALUES(?, 1)');
             $insLike->execute(array($getid)) ;
-            echo '<p>merci</p>';
             header('location: index.php');
             }
         }
     }
 }
 
-
-
 function getLikes($id){
     $bdd = pdo_connect_mysql();
     $req = $bdd->prepare('SELECT id,idPosts,likes FROM mentions WHERE idPosts = ? ');
+
     $req->execute([$id]);
     $result=$req->fetchAll();
-
     return $result;
-
-}
+} 
